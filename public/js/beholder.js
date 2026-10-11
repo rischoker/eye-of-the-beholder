@@ -99,14 +99,6 @@ if (vEyeMask > 0.001) {
       .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\nroughnessFactor = mix(roughnessFactor, 0.06, vEyeMask);')
       .replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
 totalEmissiveRadiance += uGlowCol * uGlow * bhIris * 1.6;
-// wet glint: a fixed key highlight so the eye always reads as alive and moist
-if (vEyeMask > 0.001) {
-  vec3 vdir = normalize(vViewPosition);
-  vec3 rf = reflect(vdir, normal);
-  float g1 = pow(max(dot(rf, normalize(vec3(-.45, .55, .70))), 0.), 260.);
-  float g2 = pow(max(dot(rf, normalize(vec3(.35, .25, .90))), 0.), 900.);
-  totalEmissiveRadiance += vec3(1.,.96,.92) * (g1 * 1.6 + g2 * .7) * vEyeMask * bhAO;
-}
 totalEmissiveRadiance += vec3(1.,.92,.85) * uFlash * .55;`);
   };
   mat.customProgramCacheKey = () => 'beholder-body2';
