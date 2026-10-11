@@ -31,10 +31,10 @@ app.get('/api/audio', (_, res) => {
 // ---------- tuning (easy to change after playtesting) ----------
 const T = {
   MAX_PLAYERS: 10,
-  SPEED: 3.4,                 // units per second
+  SPEED: 5.0,                 // units per second
   ARENA: { x: 6.6, zMin: -1.6, zMax: 5.4 },
-  CIRCLE_R: 0.72,             // small on purpose
-  COUNTDOWN: 5,               // seconds, always
+  CIRCLE_R: 1.0,              // small on purpose, but 10 heroes still fit
+  COUNTDOWN: 6,               // seconds, always
   GRACE_MS: 250,              // network grace at the freeze
   ROUND_LEVEL_EVERY: 6,       // one level harder every N rounds (keeps solo / no-death games moving)
   MIX_LOWER: { 2: 0.2, 3: 0.4, 4: 0.4 }, // chance of pulling the question from the level below (softens B1+)

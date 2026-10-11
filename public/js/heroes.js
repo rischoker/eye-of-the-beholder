@@ -191,7 +191,7 @@ export class Hero {
       this.root.position.copy(this.pos);
       let d = this.dirT - this.dir; d = Math.atan2(Math.sin(d), Math.cos(d)); this.dir += d * Math.min(1, dt * 12); this.root.rotation.y = this.dir;
       if (this._cheer > 0) this._cheer -= dt;
-      else this.play(this.moving ? 'Running_A' : 'Idle_A', { fade: .18 });
+      else this.play(this.moving ? 'Running_A' : 'Idle_A', { fade: .15, speed: this.moving ? 1.3 : 1 });
     }
     if (this.ghost) {
       const G = this.ghost; G.t += dt; G.mixer.update(dt);
@@ -209,7 +209,7 @@ export class Hero {
     const x = (v.x * .5 + .5) * innerWidth, y = (-v.y * .5 + .5) * innerHeight;
     const vis = v.z < 1 && !(this.dead && !this.ghost);
     this.tag.style.transform = `translate(-50%,-100%) translate(${x}px,${y}px)`; this.tag.style.opacity = vis ? 1 : 0;
-    this.bub.style.transform = `translate(-50%,-100%) translate(${x}px,${y - 30}px)`;
+    this.bub.style.transform = `translate(-50%,-100%) translate(${x}px,${y - 46}px)`;
   }
   dispose() {
     scene.remove(this.root); this.tag.remove(); this.bub.remove();

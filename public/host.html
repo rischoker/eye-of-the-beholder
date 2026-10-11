@@ -16,14 +16,14 @@
 html, body { height: 100%; margin: 0; background: var(--void); color: var(--bone); font-family: var(--body); overflow: hidden; }
 #stage { position: fixed; inset: 0; }
 #labels { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
-.tag { position: absolute; left: 0; top: 0; white-space: nowrap; font: 700 clamp(13px, 1.15vw, 20px) var(--body); padding: 2px 9px 3px; border-radius: 6px; background: rgba(8,5,6,.72); border: 1px solid var(--line); transition: opacity .3s; }
+.tag { position: absolute; left: 0; top: 0; z-index: 1; white-space: nowrap; font: 700 clamp(13px, 1.15vw, 20px) var(--body); padding: 2px 9px 3px; border-radius: 6px; background: rgba(8,5,6,.72); border: 1px solid var(--line); transition: opacity .3s; }
 .tag i { display: inline-block; width: .65em; height: .65em; border-radius: 50%; margin-right: 6px; vertical-align: .05em; }
 .tag.off { opacity: .45 !important; }
 .tag.ghost { color: #c9d6ff; border-color: rgba(160,180,255,.35); background: rgba(20,24,48,.6); font-style: italic; }
-.bubble { position: absolute; left: 0; top: 0; max-width: 14em; font: 700 clamp(14px, 1.25vw, 22px) var(--body); color: #1b1012; background: var(--bone); padding: 6px 12px; border-radius: 14px; opacity: 0; transition: opacity .2s; white-space: nowrap; }
+.bubble { position: absolute; left: 0; top: 0; z-index: 3; max-width: 14em; font: 700 clamp(14px, 1.25vw, 22px) var(--body); color: #1b1012; background: var(--bone); padding: 6px 12px; border-radius: 14px; opacity: 0; transition: opacity .2s; white-space: nowrap; }
 .bubble::after { content: ""; position: absolute; left: 50%; bottom: -8px; margin-left: -8px; border: 8px solid transparent; border-top-color: var(--bone); border-bottom: 0; }
 .bubble.on { opacity: 1; }
-.clabel { position: absolute; left: 0; top: 0; white-space: nowrap; font: 800 clamp(16px, 1.55vw, 28px) var(--body); padding: 4px 14px 5px 6px; border-radius: 999px; background: rgba(8,5,6,.82); border: 2px solid; display: flex; align-items: center; gap: 8px; transition: opacity .4s, transform .1s; }
+.clabel { position: absolute; left: 0; top: 0; z-index: 2; white-space: nowrap; font: 800 clamp(16px, 1.55vw, 28px) var(--body); padding: 4px 14px 5px 6px; border-radius: 999px; background: rgba(8,5,6,.82); border: 2px solid; display: flex; align-items: center; gap: 8px; transition: opacity .4s, transform .1s; }
 .clabel b { display: grid; place-items: center; width: 1.45em; height: 1.45em; border-radius: 50%; color: #160b0b; font: 900 1em var(--display); }
 .clabel.lose { opacity: .25; }
 
@@ -69,9 +69,13 @@ html, body { height: 100%; margin: 0; background: var(--void); color: var(--bone
 #banner { position: fixed; left: 0; right: 0; top: 40%; text-align: center; font: 900 clamp(60px, 10vw, 190px) var(--display); color: var(--blood-hi); text-shadow: 0 0 40px rgba(255,20,20,.6), 0 6px 0 #2a0204; z-index: 7; pointer-events: none; opacity: 0; transform: scale(2.2); }
 #banner.stamp { animation: stamp 1.6s ease-out forwards; }
 @keyframes stamp { 0% { opacity: 0; transform: scale(2.4); } 12% { opacity: 1; transform: scale(1); } 75% { opacity: 1; transform: scale(1.04); } 100% { opacity: 0; transform: scale(1.1); } }
-#countdown { position: fixed; left: 0; right: 0; top: 30%; text-align: center; font: 900 clamp(110px, 16vw, 300px) var(--display); color: #ff3b2f; text-shadow: 0 0 50px rgba(255,40,30,.75); z-index: 7; pointer-events: none; opacity: 0; }
-#countdown.tick { animation: tick .95s ease-out; }
-@keyframes tick { 0% { opacity: 0; transform: scale(1.6); } 15% { opacity: .95; transform: scale(1); } 100% { opacity: 0; transform: scale(.85); } }
+#countdown { position: fixed; left: 0; right: 0; top: 26%; text-align: center; font: 400 clamp(140px, 19vw, 360px) "Ebon Sigil", var(--display); line-height: 1; color: #ff2a1f; text-shadow: 0 0 40px rgba(255,30,20,.85), 0 0 120px rgba(160,0,0,.6), 0 8px 0 #2a0204; z-index: 7; pointer-events: none; opacity: 0; }
+/* the number beats with the heartbeat: a hard "lub" and a softer "dub", then fades */
+#countdown.tick { animation: beat 1s linear; }
+@keyframes beat { 0% { opacity: 0; transform: scale(1.35); } 8% { opacity: 1; transform: scale(1.18); } 18% { transform: scale(1); } 28% { transform: scale(1.09); } 40% { transform: scale(1); opacity: 1; } 100% { opacity: .15; transform: scale(.94); } }
+#pulse { position: fixed; inset: 0; pointer-events: none; z-index: 6; opacity: 0; background: radial-gradient(ellipse at center, transparent 45%, rgba(150,0,0,.55) 100%); }
+#pulse.beat { animation: pulse 1s ease-out; }
+@keyframes pulse { 0% { opacity: 0; } 8% { opacity: var(--p, .6); } 18% { opacity: calc(var(--p, .6) * .4); } 28% { opacity: calc(var(--p, .6) * .8); } 100% { opacity: 0; } }
 #fade { position: fixed; inset: 0; background: #000; opacity: 0; pointer-events: none; z-index: 8; transition: opacity 1.2s; }
 #card { position: fixed; inset: 0; display: grid; place-items: center; z-index: 9; pointer-events: none; opacity: 0; transition: opacity 1.2s; text-align: center; }
 #card div { font: 500 clamp(22px, 2.4vw, 44px) var(--souls); letter-spacing: .12em; color: var(--bone-dim); }
@@ -124,6 +128,7 @@ td small { color: var(--bone-dim); }
 <div id="hud" hidden><span id="hRound">Round 1</span><span id="hLevel">A1</span><span id="hAlive">10 alive</span></div>
 <div id="dialog"><div class="who"><span>The Beholder</span><span id="dlv"></span></div><div class="txt" id="dtxt"></div><div class="opts" id="dopts"></div></div>
 <div id="banner">ANSWER OR DIE</div>
+<div id="pulse"></div>
 <div id="countdown"></div>
 <div id="fade"></div>
 <div id="card"><div>Beneath the ruins of Oldmere…<b>something is watching</b></div></div>

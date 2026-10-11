@@ -258,6 +258,8 @@ async function countdown(m) {
   for (const h of aliveHeroes.sort(() => Math.random() - .5).slice(0, 2)) setTimeout(() => !h.dead && h.say(pick(LINES.count), 1800), 900 + Math.random() * 2000);
   for (let n = m.secs; n >= 1; n--) {
     const el = $('countdown'); el.textContent = n; el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick');
+    const pu = $('pulse'); pu.style.setProperty('--p', (.3 + (m.secs - n) / m.secs * .55).toFixed(2)); pu.classList.remove('beat'); void pu.offsetWidth; pu.classList.add('beat');
+    if (n <= 2) S.shake(.12);
     A.sfx('tick', { vol: .9 });
     if (n === 2) A.sfx('charge', { vol: .8 });
     await wait(1000); ok();
@@ -373,7 +375,7 @@ function frame() {
   }
   for (const h of heroes.values()) h.update(dt, T);
   // circle labels follow their circles on screen
-  for (const { d, c } of clabels) { const v = eyeW.set(c.x, 2.3, c.z).project(S.camera); d.style.transform = `translate(-50%,-100%) translate(${(v.x * .5 + .5) * innerWidth}px,${(-v.y * .5 + .5) * innerHeight}px)`; }
+  for (const { d, c } of clabels) { const v = eyeW.set(c.x, 3.1, c.z).project(S.camera); d.style.transform = `translate(-50%,-100%) translate(${(v.x * .5 + .5) * innerWidth}px,${(-v.y * .5 + .5) * innerHeight}px)`; }
   FX.update(dt); S.update(dt, T);
   // adaptive resolution: keeps the office projector PC smooth
   if (!SIM) { perf.t += clock.elapsedTime - perf.last; perf.last = clock.elapsedTime; perf.n++;

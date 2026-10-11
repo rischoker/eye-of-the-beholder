@@ -22,10 +22,12 @@ await page.evaluate(ps => {
 await page.waitForTimeout(500);
 await page.evaluate(ps => {
   const E = window.__eotb;
-  E.onMsg({ t: 'pos', p: ps.map((p, i) => [p.id, -5 + i * 1.4, 2 + (i % 3) * 1.3, Math.PI, 1, 0]) });
-  E.boss.root.parent.userData.key.intensity = 260; E.onMsg({ t: 'ask', round: 3, level: 'A2', part: 'Vocabulary', prompt: 'You can borrow books from the ___.', circles: [{ x: -4.2, z: 1.2, r: .72, color: '#e8423a', letter: 'A', text: 'library' }, { x: -1.4, z: 3.6, r: .72, color: '#3a8ee8', letter: 'B', text: 'bakery' }, { x: 1.4, z: 3.6, r: .72, color: '#3fd46b', letter: 'C', text: 'garage' }, { x: 4.2, z: 1.2, r: .72, color: '#f2c230', letter: 'D', text: 'stadium' }], alive: 8 });
+  E.onMsg({ t: 'pos', p: ps.map((p, i) => [p.id, -4.2 + (i % 4) * .35 - .5, 1.2 + (i >> 2) * .5 - .3, Math.PI, 1, 0]) }); setTimeout(() => [...E.heroes.values()].forEach((h, i) => i < 3 && h.say(['Here! Here!', 'Hurry!', 'Are you sure?'][i], 9000)), 300);
+  E.boss.root.parent.userData.key.intensity = 260; E.onMsg({ t: 'ask', round: 3, level: 'A2', part: 'Vocabulary', prompt: 'You can borrow books from the ___.', circles: [{ x: -4.2, z: 1.2, r: 1, color: '#e8423a', letter: 'A', text: 'library' }, { x: -1.4, z: 3.6, r: 1, color: '#3a8ee8', letter: 'B', text: 'bakery' }, { x: 1.4, z: 3.6, r: 1, color: '#3fd46b', letter: 'C', text: 'garage' }, { x: 4.2, z: 1.2, r: 1, color: '#f2c230', letter: 'D', text: 'stadium' }], alive: 8 });
   const r = E.boss.root.parent; r.visible = true; r.position.set(0, 6.4, -10.5);
 }, players);
-await page.waitForTimeout(25000);
+await page.waitForTimeout(9000);
+await page.evaluate(() => window.__eotb.onMsg({ t: 'countdown', secs: 6 }));
+await page.waitForTimeout(2500);
 await page.screenshot({ path: process.argv[2] + '_ask.png' });
 await b.close(); srv.kill(); process.exit(0);

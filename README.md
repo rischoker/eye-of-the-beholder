@@ -1,7 +1,7 @@
 # 👁️ Eye of the Beholder
 
 Juego multijugador de fantasía oscura para la clase de inglés (A1–C1).
-El proyector muestra una cripta en ruinas iluminada por dos antorchas. Desde la oscuridad emerge un beholder gigante que hace preguntas de inglés. Los estudiantes, con el celular como control, se paran sobre el círculo mágico de la respuesta correcta antes de que termine la cuenta de 5 segundos. A los demás los mata con los rayos de sus ojos.
+El proyector muestra una cripta en ruinas iluminada por dos antorchas. Desde la oscuridad emerge un beholder gigante que hace preguntas de inglés. Los estudiantes, con el celular como control, se paran sobre el círculo mágico de la respuesta correcta antes de que termine la cuenta de 6 segundos. A los demás los mata con los rayos de sus ojos.
 
 - 👥 De 1 a **10 jugadores**. Si dos eligen el mismo héroe, el segundo sale con otro color y su nombre lleva una marca del mismo color.
 - 💀 Los muertos vuelven como **fantasmas**: se siguen moviendo con el celular, pero no suman puntos ni afectan la partida.

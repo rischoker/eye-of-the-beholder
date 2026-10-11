@@ -7,3 +7,4 @@
 @font-face { font-family: "Alegreya Sans"; font-weight: 800; font-display: swap; src: url(/assets/fonts/alegreya-sans-latin-800-normal.woff2) format("woff2"); }
 @font-face { font-family: "Cinzel"; font-weight: 400; font-display: swap; src: url(/assets/fonts/cinzel-latin-400-normal.woff2) format("woff2"); }
 @font-face { font-family: "Cinzel"; font-weight: 700; font-display: swap; src: url(/assets/fonts/cinzel-latin-700-normal.woff2) format("woff2"); }
+@font-face { font-family: "Ebon Sigil"; font-display: block; src: url(/assets/fonts/EbonSigil.otf) format("opentype"); }
