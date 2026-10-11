@@ -1,0 +1,1436 @@
+{
+"parts": {
+"vocab": {
+"name": "Vocabulary",
+"m": 1.0
+},
+"grammar": {
+"name": "Grammar",
+"m": 1.0
+},
+"sign": {
+"name": "Signs & notices",
+"m": 1.3
+},
+"reply": {
+"name": "Short conversations",
+"m": 1.1
+},
+"read": {
+"name": "Read & choose",
+"m": 1.3
+}
+},
+"questions": [
+{
+"part": "vocab",
+"q": "You read books in a ___.",
+"o": [
+"library",
+"kitchen",
+"garden",
+"bathroom"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "A cat has four ___.",
+"o": [
+"legs",
+"arms",
+"hands",
+"wings"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "The opposite of \"big\" is ___.",
+"o": [
+"small",
+"tall",
+"long",
+"fat"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "The opposite of \"hot\" is ___.",
+"o": [
+"cold",
+"warm",
+"wet",
+"dark"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "We sleep in a ___.",
+"o": [
+"bed",
+"chair",
+"table",
+"sink"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "You cook food in the ___.",
+"o": [
+"kitchen",
+"bedroom",
+"garage",
+"classroom"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Which one is a fruit?",
+"o": [
+"banana",
+"carrot",
+"bread",
+"cheese"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Which one is an animal?",
+"o": [
+"horse",
+"apple",
+"table",
+"river"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Which one is a color?",
+"o": [
+"purple",
+"Monday",
+"happy",
+"window"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Which one is a day of the week?",
+"o": [
+"Thursday",
+"August",
+"Winter",
+"Morning"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Which one is a month?",
+"o": [
+"October",
+"Sunday",
+"Autumn",
+"Evening"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "You see with your ___.",
+"o": [
+"eyes",
+"ears",
+"nose",
+"mouth"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "You hear with your ___.",
+"o": [
+"ears",
+"eyes",
+"feet",
+"hands"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Your mother's mother is your ___.",
+"o": [
+"grandmother",
+"aunt",
+"sister",
+"cousin"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Your father's brother is your ___.",
+"o": [
+"uncle",
+"cousin",
+"nephew",
+"grandfather"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "A doctor works in a ___.",
+"o": [
+"hospital",
+"farm",
+"shop",
+"school bus"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "A teacher works in a ___.",
+"o": [
+"school",
+"hospital",
+"restaurant",
+"bank"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "It's raining. Take your ___.",
+"o": [
+"umbrella",
+"sunglasses",
+"swimsuit",
+"kite"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "It's cold. Put on your ___.",
+"o": [
+"coat",
+"shorts",
+"sandals",
+"T-shirt"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "We drink ___ when we are thirsty.",
+"o": [
+"water",
+"bread",
+"rice",
+"soup spoons"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Ten plus five is ___.",
+"o": [
+"fifteen",
+"fifty",
+"five",
+"twelve"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Twenty minus eight is ___.",
+"o": [
+"twelve",
+"eleven",
+"twenty-eight",
+"eight"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Which one can fly?",
+"o": [
+"bird",
+"fish",
+"cow",
+"snake"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Which one lives in the sea?",
+"o": [
+"shark",
+"lion",
+"monkey",
+"camel"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "You wear shoes on your ___.",
+"o": [
+"feet",
+"hands",
+"head",
+"arms"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "You wear a hat on your ___.",
+"o": [
+"head",
+"feet",
+"knees",
+"back"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Breakfast is in the ___.",
+"o": [
+"morning",
+"night",
+"evening",
+"afternoon"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Which one is a drink?",
+"o": [
+"juice",
+"pizza",
+"sandwich",
+"cake"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Which one is a sport?",
+"o": [
+"football",
+"piano",
+"chess board",
+"pencil"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Which one do you use to write?",
+"o": [
+"pen",
+"spoon",
+"ball",
+"sock"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "You buy food at the ___.",
+"o": [
+"supermarket",
+"library",
+"post office",
+"museum"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "A baby cat is a ___.",
+"o": [
+"kitten",
+"puppy",
+"calf",
+"chick"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "A baby dog is a ___.",
+"o": [
+"puppy",
+"kitten",
+"lamb",
+"foal"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "The first meal of the day is ___.",
+"o": [
+"breakfast",
+"lunch",
+"dinner",
+"dessert"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Which word is a job?",
+"o": [
+"pilot",
+"piano",
+"pizza",
+"pillow"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "Snow is ___.",
+"o": [
+"white",
+"black",
+"green",
+"orange"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "There are seven days in a ___.",
+"o": [
+"week",
+"month",
+"year",
+"day"
+],
+"a": 0
+},
+{
+"part": "vocab",
+"q": "There are twelve months in a ___.",
+"o": [
+"year",
+"week",
+"day",
+"season"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "I ___ ten years old.",
+"o": [
+"am",
+"is",
+"are",
+"be"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "She ___ a teacher.",
+"o": [
+"is",
+"am",
+"are",
+"be"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "They ___ my friends.",
+"o": [
+"are",
+"is",
+"am",
+"be"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "___ you like pizza?",
+"o": [
+"Do",
+"Does",
+"Are",
+"Is"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "___ she have a brother?",
+"o": [
+"Does",
+"Do",
+"Is",
+"Are"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "He ___ football every Saturday.",
+"o": [
+"plays",
+"play",
+"playing",
+"to play"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "I ___ like spiders.",
+"o": [
+"don't",
+"doesn't",
+"isn't",
+"aren't"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "My sister ___ like milk.",
+"o": [
+"doesn't",
+"don't",
+"isn't",
+"aren't"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "There ___ a cat on the bed.",
+"o": [
+"is",
+"are",
+"am",
+"be"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "There ___ three books on the table.",
+"o": [
+"are",
+"is",
+"am",
+"has"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "This is ___ apple.",
+"o": [
+"an",
+"a",
+"the a",
+"two"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "I have ___ dog and two cats.",
+"o": [
+"a",
+"an",
+"any",
+"some of"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "Look at ___ birds in the sky!",
+"o": [
+"those",
+"that",
+"this",
+"it"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "The book is ___ the table.",
+"o": [
+"on",
+"at",
+"to",
+"of"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "My birthday is ___ May.",
+"o": [
+"in",
+"on",
+"at",
+"to"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "The party is ___ Saturday.",
+"o": [
+"on",
+"in",
+"at",
+"of"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "School starts ___ eight o'clock.",
+"o": [
+"at",
+"in",
+"on",
+"to"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "One child, two ___.",
+"o": [
+"children",
+"childs",
+"childrens",
+"childes"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "One mouse, three ___.",
+"o": [
+"mice",
+"mouses",
+"mices",
+"mousies"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "One box, two ___.",
+"o": [
+"boxes",
+"boxs",
+"boxies",
+"box"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "This is Tom. ___ is my brother.",
+"o": [
+"He",
+"She",
+"It",
+"They"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "This is ___ bag. (It belongs to me.)",
+"o": [
+"my",
+"me",
+"I",
+"mine is"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "___ is your name?",
+"o": [
+"What",
+"Who",
+"Where",
+"How"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "___ do you live? — In Bogotá.",
+"o": [
+"Where",
+"What",
+"Who",
+"When"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "___ old are you?",
+"o": [
+"How",
+"What",
+"Who",
+"Which"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "___ is that man? — He's my dad.",
+"o": [
+"Who",
+"What",
+"Where",
+"How"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "I can ___ very fast.",
+"o": [
+"run",
+"runs",
+"running",
+"to run"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "Can you swim? — Yes, I ___.",
+"o": [
+"can",
+"do",
+"am",
+"swim"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "She is ___ a book now.",
+"o": [
+"reading",
+"read",
+"reads",
+"to read"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "Listen! The baby ___.",
+"o": [
+"is crying",
+"cry",
+"cries",
+"crying"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "Yesterday I ___ to the park.",
+"o": [
+"went",
+"go",
+"goes",
+"going"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "Last night we ___ TV.",
+"o": [
+"watched",
+"watch",
+"watches",
+"watching"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "He ___ very happy yesterday.",
+"o": [
+"was",
+"were",
+"is",
+"be"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "They ___ at school yesterday.",
+"o": [
+"were",
+"was",
+"are",
+"is"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "My house is ___ than your house.",
+"o": [
+"bigger",
+"big",
+"biggest",
+"more big"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "An elephant is ___ than a dog.",
+"o": [
+"heavier",
+"heavy",
+"heaviest",
+"more heavy"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "___ your hands before lunch!",
+"o": [
+"Wash",
+"Washes",
+"Washing",
+"To washing"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "How ___ apples do you want?",
+"o": [
+"many",
+"much",
+"any",
+"lot"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "How ___ is this T-shirt? — It's $10.",
+"o": [
+"much",
+"many",
+"old",
+"long"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "I've got ___ brothers. (no brothers)",
+"o": [
+"no",
+"any",
+"not",
+"some"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "Is this pen ___? — Yes, it's mine.",
+"o": [
+"yours",
+"you",
+"your",
+"you're"
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "Sign: \"NO SWIMMING\". What does it mean?",
+"o": [
+"You can't swim here.",
+"You must swim here.",
+"The pool is open.",
+"Swimming lessons today."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "Sign: \"CLOSED ON SUNDAYS\". What does it mean?",
+"o": [
+"You can't go in on Sunday.",
+"It's open only on Sunday.",
+"It's open every day.",
+"It closes at night."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "Sign: \"PLEASE BE QUIET\". Where can you see it?",
+"o": [
+"in a library",
+"at a football match",
+"at a party",
+"in a playground"
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "Sign: \"EXIT\". What does it mean?",
+"o": [
+"the way out",
+"the way in",
+"the toilet",
+"the stairs up"
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "Sign: \"DON'T FEED THE ANIMALS\". Where can you see it?",
+"o": [
+"at the zoo",
+"in a restaurant",
+"in a classroom",
+"at the bank"
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "Sign: \"WET PAINT\". What does it mean?",
+"o": [
+"Don't touch, it's not dry.",
+"Paint this wall.",
+"Paint for sale.",
+"The wall is old."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "Sign: \"PUSH\". What do you do?",
+"o": [
+"Push the door to open it.",
+"Pull the door.",
+"Ring the bell.",
+"Wait here."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "Sign: \"BUS STOP\". What happens here?",
+"o": [
+"People wait for the bus.",
+"People buy buses.",
+"The bus is broken.",
+"Buses are washed here."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "Sign: \"TICKETS: $5 CHILDREN, $8 ADULTS\". A child pays…",
+"o": [
+"five dollars",
+"eight dollars",
+"thirteen dollars",
+"nothing"
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "Sign: \"OPEN 9:00–17:00\". When can you go in?",
+"o": [
+"in the afternoon",
+"at 8 in the morning",
+"at 8 at night",
+"at midnight"
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "Sign: \"KEEP OFF THE GRASS\". What does it mean?",
+"o": [
+"Don't walk on the grass.",
+"Cut the grass.",
+"Sit on the grass.",
+"Water the grass."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "Sign: \"NO PHONES IN CLASS\". What does it mean?",
+"o": [
+"Don't use your phone in the classroom.",
+"Bring your phone to class.",
+"Phones are for sale.",
+"Call the teacher."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"How are you?\"",
+"o": [
+"I'm fine, thanks.",
+"I'm ten.",
+"I'm from Peru.",
+"It's blue."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"What's your favorite color?\"",
+"o": [
+"Green.",
+"Pizza.",
+"On Monday.",
+"Yes, I do."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Where are you from?\"",
+"o": [
+"I'm from Colombia.",
+"I'm twelve.",
+"I'm happy.",
+"It's my bag."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Can I have some water, please?\"",
+"o": [
+"Here you are.",
+"You're welcome to Peru.",
+"I'm water.",
+"No, it's Monday."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Thank you very much!\"",
+"o": [
+"You're welcome.",
+"Yes, please.",
+"I'm sorry.",
+"Good night, thanks."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"What time is it?\"",
+"o": [
+"It's three o'clock.",
+"It's Tuesday.",
+"It's sunny.",
+"It's in May."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Do you have a pet?\"",
+"o": [
+"Yes, a dog.",
+"Yes, a sister.",
+"Yes, I am.",
+"Yes, at home."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Whose bag is this?\"",
+"o": [
+"It's Anna's.",
+"It's red.",
+"It's big.",
+"It's on the chair."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"What's the weather like?\"",
+"o": [
+"It's sunny.",
+"It's Friday.",
+"It's my coat.",
+"It's ten o'clock."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Let's play football!\"",
+"o": [
+"Good idea!",
+"I'm fine.",
+"It's mine.",
+"Twelve."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"When is your birthday?\"",
+"o": [
+"In June.",
+"In the kitchen.",
+"I'm eleven.",
+"With my mom."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Sorry, I'm late.\"",
+"o": [
+"That's OK.",
+"You're welcome.",
+"Me too, thanks.",
+"Nice to meet you."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Nice to meet you.\"",
+"o": [
+"Nice to meet you too.",
+"I'm sorry.",
+"Yes, I can.",
+"Good idea."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"How do you spell your name?\"",
+"o": [
+"M-A-R-I-A.",
+"It's Maria's.",
+"I'm Maria's sister.",
+"Maria is ten."
+],
+"a": 0
+},
+{
+"part": "read",
+"q": "\"Tom has a red bike. His sister has a blue bike.\" What color is Tom's bike?",
+"o": [
+"red",
+"blue",
+"green",
+"yellow"
+],
+"a": 0
+},
+{
+"part": "read",
+"q": "\"Sara gets up at 7. She has breakfast at 7:30.\" When does Sara get up?",
+"o": [
+"at seven",
+"at half past seven",
+"at eight",
+"at six"
+],
+"a": 0
+},
+{
+"part": "read",
+"q": "\"Ben likes apples but he doesn't like bananas.\" What doesn't Ben like?",
+"o": [
+"bananas",
+"apples",
+"oranges",
+"grapes"
+],
+"a": 0
+},
+{
+"part": "read",
+"q": "\"My cat is under the bed. My dog is in the garden.\" Where is the dog?",
+"o": [
+"in the garden",
+"under the bed",
+"on the bed",
+"in the kitchen"
+],
+"a": 0
+},
+{
+"part": "read",
+"q": "\"Lucy is 9. Her brother is 3 years older.\" How old is her brother?",
+"o": [
+"12",
+"6",
+"9",
+"3"
+],
+"a": 0
+},
+{
+"part": "read",
+"q": "\"On Mondays, Paul plays tennis. On Fridays, he swims.\" What does Paul do on Friday?",
+"o": [
+"He swims.",
+"He plays tennis.",
+"He plays football.",
+"He reads."
+],
+"a": 0
+},
+{
+"part": "read",
+"q": "\"We have a big kitchen and two small bedrooms.\" How many bedrooms?",
+"o": [
+"two",
+"one",
+"three",
+"four"
+],
+"a": 0
+},
+{
+"part": "read",
+"q": "\"Mia's favorite animal is the giraffe because it's very tall.\" Why does Mia like giraffes?",
+"o": [
+"They are tall.",
+"They are small.",
+"They are fast.",
+"They can fly."
+],
+"a": 0
+},
+{
+"part": "read",
+"q": "\"It's Saturday. Jack is at the beach with his family.\" Where is Jack?",
+"o": [
+"at the beach",
+"at school",
+"at home",
+"at the park"
+],
+"a": 0
+},
+{
+"part": "read",
+"q": "\"Anna can play the guitar, but she can't play the piano.\" What can Anna play?",
+"o": [
+"the guitar",
+"the piano",
+"the drums",
+"the violin"
+],
+"a": 0
+}
+],
+"golden": [
+{
+"part": "grammar",
+"q": "Write the missing word: \"She ___ my best friend.\"",
+"a": [
+"is"
+]
+},
+{
+"part": "grammar",
+"q": "Write the plural: one man, two ___",
+"a": [
+"men"
+]
+},
+{
+"part": "grammar",
+"q": "Write the plural: one foot, two ___",
+"a": [
+"feet"
+]
+},
+{
+"part": "grammar",
+"q": "Write the plural: one tooth, many ___",
+"a": [
+"teeth"
+]
+},
+{
+"part": "grammar",
+"q": "Past tense of \"go\": Yesterday I ___ to school.",
+"a": [
+"went"
+]
+},
+{
+"part": "grammar",
+"q": "Past tense of \"eat\": Last night we ___ pizza.",
+"a": [
+"ate"
+]
+},
+{
+"part": "grammar",
+"q": "Past tense of \"see\": I ___ a big dog yesterday.",
+"a": [
+"saw"
+]
+},
+{
+"part": "vocab",
+"q": "Write the opposite of \"old\" (for things): an ___ car",
+"a": [
+"new"
+]
+},
+{
+"part": "vocab",
+"q": "Write the opposite of \"happy\"",
+"a": [
+"sad",
+"unhappy"
+]
+},
+{
+"part": "vocab",
+"q": "Write the number: 7 + 6 = ___ (in letters)",
+"a": [
+"thirteen"
+]
+},
+{
+"part": "vocab",
+"q": "Write the day after Monday",
+"a": [
+"Tuesday"
+]
+},
+{
+"part": "vocab",
+"q": "Write the month after March",
+"a": [
+"April"
+]
+},
+{
+"part": "vocab",
+"q": "Write the animal: it says \"moo\" and gives us milk",
+"a": [
+"cow"
+]
+},
+{
+"part": "vocab",
+"q": "Write the color: mix black and white",
+"a": [
+"grey",
+"gray"
+]
+},
+{
+"part": "grammar",
+"q": "Write the missing word: \"There ___ two cats in the garden.\"",
+"a": [
+"are"
+]
+},
+{
+"part": "grammar",
+"q": "Write the missing word: \"I ___ got a new bike.\"",
+"a": [
+"have",
+"'ve"
+]
+},
+{
+"part": "grammar",
+"q": "Write the comparative: tall → ___",
+"a": [
+"taller"
+]
+},
+{
+"part": "grammar",
+"q": "Write the comparative: good → ___",
+"a": [
+"better"
+]
+},
+{
+"part": "grammar",
+"q": "Write the missing word: \"___ you swim? — Yes, I can.\"",
+"a": [
+"Can"
+]
+},
+{
+"part": "vocab",
+"q": "Write the word: you use it to cut paper",
+"a": [
+"scissors"
+]
+}
+]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "eye-of-the-beholder",
+  "version": "1.0.0",
+  "description": "Multiplayer dark-fantasy EFL quiz game: answer the beholder's questions or die",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "qrcode": "^1.5.4",
+    "three": "0.170.0",
+    "ws": "^8.22.0"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.2.1",
+    "@gltf-transform/functions": "^4.2.1",
+    "meshoptimizer": "^0.22.0",
+    "playwright-core": "^1.56.0"
+  },
+  "engines": { "node": ">=18" }
+}

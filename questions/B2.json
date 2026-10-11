@@ -1,0 +1,1385 @@
+{
+"parts": {
+"p1": {
+"name": "FCE Part 1 · Multiple-choice cloze",
+"m": 1.1
+},
+"p2": {
+"name": "FCE Part 2 · Open cloze",
+"m": 1.1
+},
+"p3": {
+"name": "FCE Part 3 · Word formation",
+"m": 1.2
+},
+"p4": {
+"name": "FCE Part 4 · Key word transformation",
+"m": 1.9
+},
+"phrasal": {
+"name": "Phrasal verbs",
+"m": 1.0
+},
+"grammar": {
+"name": "Grammar",
+"m": 1.1
+}
+},
+"questions": [
+{
+"part": "p1",
+"q": "The company has ___ a decision to close two of its stores.",
+"o": [
+"reached",
+"done",
+"put",
+"given"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "She ___ a strong influence on her younger brother.",
+"o": [
+"has",
+"makes",
+"does",
+"takes"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "It's hard to ___ a balance between work and family life.",
+"o": [
+"strike",
+"hit",
+"catch",
+"win"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "The new law will ___ into effect next month.",
+"o": [
+"come",
+"go",
+"get",
+"bring"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "He ___ no attempt to hide his disappointment.",
+"o": [
+"made",
+"did",
+"gave",
+"took"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "We need to ___ into account the cost of transport.",
+"o": [
+"take",
+"put",
+"make",
+"have"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "Heavy rain ___ the outdoor concert to be cancelled.",
+"o": [
+"caused",
+"made",
+"resulted",
+"led"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "The museum attracts a ___ number of visitors every year.",
+"o": [
+"large",
+"big amount",
+"wide",
+"great deal"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "I'd like to ___ my thanks to everyone who helped.",
+"o": [
+"express",
+"say",
+"tell",
+"speak"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "She has a ___ memory and never forgets a face.",
+"o": [
+"remarkable",
+"considerable",
+"numerous",
+"plentiful"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "The film ___ on a true story.",
+"o": [
+"is based",
+"is founded",
+"is set",
+"is built"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "Our team ___ the match 3–1.",
+"o": [
+"won",
+"beat",
+"earned",
+"gained"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "Our team ___ their rivals 3–1.",
+"o": [
+"beat",
+"won",
+"earned",
+"succeeded"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "Can you ___ me to call the dentist tomorrow?",
+"o": [
+"remind",
+"remember",
+"recall",
+"memorize"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "The price ___ breakfast, so you don't pay extra.",
+"o": [
+"includes",
+"contains",
+"consists",
+"involves"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "He was ___ of stealing the money, but he was innocent.",
+"o": [
+"accused",
+"blamed",
+"charged with",
+"suspected for"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "Scientists have ___ a breakthrough in cancer research.",
+"o": [
+"made",
+"done",
+"taken",
+"had"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "The meeting has been ___ until next Thursday.",
+"o": [
+"postponed",
+"delayed for",
+"cancelled to",
+"prevented"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "She ___ her exam with flying colours.",
+"o": [
+"passed",
+"succeeded",
+"achieved",
+"managed"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "Please don't ___ me wrong – I like your idea.",
+"o": [
+"get",
+"take",
+"make",
+"have"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "They ___ a fortune by selling their app.",
+"o": [
+"made",
+"won",
+"gained up",
+"earned up"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "It's no ___ crying over it now.",
+"o": [
+"use",
+"point to",
+"worth",
+"value"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "The hotel was ___ to the beach – just two minutes' walk.",
+"o": [
+"close",
+"near by",
+"beside",
+"nearly"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "I ___ to see the manager immediately!",
+"o": [
+"demand",
+"require",
+"claim",
+"insist"
+],
+"a": 0
+},
+{
+"part": "p1",
+"q": "The village is in a ___ area, far from any town.",
+"o": [
+"remote",
+"distant from",
+"far",
+"isolated from"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "___ the bad weather, the match went ahead.",
+"o": [
+"Despite",
+"Although",
+"However",
+"Even"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "I'd rather you ___ tell anyone about this.",
+"o": [
+"didn't",
+"don't",
+"won't",
+"not"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "It's high time we ___ home.",
+"o": [
+"went",
+"go",
+"will go",
+"have gone"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "Hardly ___ I sat down when the phone rang.",
+"o": [
+"had",
+"did",
+"was",
+"have"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "No ___ how hard I try, I can't remember her name.",
+"o": [
+"matter",
+"way",
+"mind",
+"doubt"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "He spoke quietly so ___ not to wake the baby.",
+"o": [
+"as",
+"that",
+"to",
+"much"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "She's one of the ___ talented musicians I know.",
+"o": [
+"most",
+"more",
+"much",
+"best"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "___ you need help, just call me.",
+"o": [
+"Should",
+"Would",
+"Could",
+"Shall"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "I can't afford a car, let ___ a house.",
+"o": [
+"alone",
+"apart",
+"only",
+"aside"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "There's no point ___ arguing about it.",
+"o": [
+"in",
+"of",
+"to",
+"for"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "We'll have to go, ___ we like it or not.",
+"o": [
+"whether",
+"if",
+"either",
+"unless"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "It was ___ last minute that he decided to come.",
+"o": [
+"at the",
+"in the",
+"on the",
+"to the"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "___ to the forecast, it will snow tonight.",
+"o": [
+"According",
+"Depending",
+"Regarding",
+"Owing"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "She succeeded ___ getting the job.",
+"o": [
+"in",
+"on",
+"at",
+"to"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "Not ___ did he win, but he broke the record.",
+"o": [
+"only",
+"just",
+"even",
+"merely so"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "I'll help you, ___ long as you help me later.",
+"o": [
+"as",
+"so much",
+"such",
+"while"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "They insisted ___ paying for dinner.",
+"o": [
+"on",
+"in",
+"to",
+"at"
+],
+"a": 0
+},
+{
+"part": "p2",
+"q": "It's worth ___ the extra money for a good pair of shoes.",
+"o": [
+"spending",
+"to spend",
+"spend",
+"spent"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "She spoke with great ___ about the problem. (CONFIDENT)",
+"o": [
+"confidence",
+"confidential",
+"confident",
+"confidently"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "The ___ of the new bridge took three years. (CONSTRUCT)",
+"o": [
+"construction",
+"constructive",
+"constructor",
+"constructing"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "It's ___ to drive without a licence. (LEGAL)",
+"o": [
+"illegal",
+"unlegal",
+"dislegal",
+"inlegal"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "His ___ to help surprised everyone. (WILLING)",
+"o": [
+"willingness",
+"willingly",
+"unwilling",
+"willful"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "The instructions were completely ___. (UNDERSTAND)",
+"o": [
+"incomprehensible",
+"ununderstandable",
+"misunderstand",
+"understanding"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "We were impressed by the ___ of the scenery. (BEAUTIFUL)",
+"o": [
+"beauty",
+"beautify",
+"beautifully",
+"beauteous"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "She is very ___ – she always tells the truth. (HONEST)",
+"o": [
+"honest",
+"honesty",
+"honestly",
+"dishonesty"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "The ___ of the competition will receive a prize. (WIN)",
+"o": [
+"winner",
+"winning",
+"winnings",
+"winful"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "There has been a ___ increase in prices. (DRAMA)",
+"o": [
+"dramatic",
+"dramatical",
+"dramatize",
+"dramatist"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "He felt a sense of ___ after the exam. (RELIEVE)",
+"o": [
+"relief",
+"relieve",
+"relieving",
+"relieved"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "Please make your ___ quickly. (CHOOSE)",
+"o": [
+"choice",
+"chose",
+"chosen",
+"choosy"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "It was ___ of him to forget your birthday. (THINK)",
+"o": [
+"thoughtless",
+"thinkless",
+"unthinking of",
+"thoughtful"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "The ___ of the city has grown rapidly. (POPULATE)",
+"o": [
+"population",
+"popularity",
+"populous",
+"populated"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "Her ___ in the race was unexpected. (SUCCEED)",
+"o": [
+"success",
+"succession",
+"successor",
+"successive"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "The hotel staff were extremely ___. (HELP)",
+"o": [
+"helpful",
+"helpless",
+"helping",
+"helper"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "Smoking can ___ your health. (DANGER)",
+"o": [
+"endanger",
+"dangerize",
+"dangerous",
+"danger"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "There's a ___ of rain this afternoon. (POSSIBLE)",
+"o": [
+"possibility",
+"possibly",
+"possible",
+"impossibly"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "He was ___ late for every meeting. (CONTINUE)",
+"o": [
+"continually",
+"continual",
+"continuation",
+"continuous"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "Their ___ lasted for over fifty years. (FRIEND)",
+"o": [
+"friendship",
+"friendliness",
+"friendly",
+"befriend"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "The museum has a ___ collection of paintings. (MAGNIFICENCE)",
+"o": [
+"magnificent",
+"magnificently",
+"magnify",
+"magnified"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "We need to ___ the road to reduce traffic. (WIDE)",
+"o": [
+"widen",
+"widely",
+"width",
+"wideness"
+],
+"a": 0
+},
+{
+"part": "p3",
+"q": "Her ___ was the best in the class. (PERFORM)",
+"o": [
+"performance",
+"performer",
+"performing",
+"performative"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"I haven't seen Tom for ages.\" (LAST) → I ___ ages ago.",
+"o": [
+"last saw Tom",
+"lastly saw Tom",
+"saw Tom last for",
+"have last seen Tom"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"It's possible that she missed the train.\" (MAY) → She ___ the train.",
+"o": [
+"may have missed",
+"may missed",
+"may be missing",
+"may miss it"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"I regret not studying harder.\" (WISH) → I ___ harder.",
+"o": [
+"wish I had studied",
+"wish I studied",
+"wish to study",
+"wish I would study"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"They say he is very rich.\" (SAID) → He ___ very rich.",
+"o": [
+"is said to be",
+"is said being",
+"said to be",
+"is saying to be"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"It wasn't necessary for us to bring food.\" (NEED) → We ___ food.",
+"o": [
+"didn't need to bring",
+"needn't bringing",
+"don't need bring",
+"needed not bring"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"Someone stole my bike yesterday.\" (HAD) → I ___ yesterday.",
+"o": [
+"had my bike stolen",
+"had stolen my bike",
+"had my bike steal",
+"had been stolen my bike"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"He started working here five years ago.\" (BEEN) → He ___ here for five years.",
+"o": [
+"has been working",
+"had been working",
+"been working",
+"was been working"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"I'd prefer to stay at home tonight.\" (RATHER) → I ___ at home tonight.",
+"o": [
+"would rather stay",
+"would rather to stay",
+"rather stay",
+"would rather staying"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"The film was so boring that I fell asleep.\" (SUCH) → It ___ that I fell asleep.",
+"o": [
+"was such a boring film",
+"was such boring film",
+"was so a boring film",
+"such was a boring film"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"You should apologize to her.\" (BETTER) → You ___ to her.",
+"o": [
+"had better apologize",
+"had better to apologize",
+"better had apologize",
+"would better apologize"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"Although it rained, we enjoyed the trip.\" (SPITE) → We enjoyed the trip ___ rain.",
+"o": [
+"in spite of the",
+"in spite the",
+"despite of the",
+"in spite that"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"It's not worth complaining.\" (POINT) → There's ___ complaining.",
+"o": [
+"no point in",
+"not point to",
+"no point to",
+"none point of"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"I'm sure she didn't take the money.\" (CAN'T) → She ___ the money.",
+"o": [
+"can't have taken",
+"can't take",
+"can't had taken",
+"can't be taken"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"Nobody told me about the meeting.\" (WAS) → I ___ about the meeting.",
+"o": [
+"wasn't told",
+"was told not",
+"wasn't telling",
+"was not tell"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"Do you mind if I open the window?\" (OBJECT) → Do you ___ the window?",
+"o": [
+"object to my opening",
+"object to open",
+"object my opening",
+"object for opening"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"It's ages since I last went to the beach.\" (BEEN) → I ___ to the beach for ages.",
+"o": [
+"haven't been",
+"hadn't been",
+"haven't gone been",
+"wasn't been"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"She didn't come because she was ill.\" (OWING) → She didn't come ___ illness.",
+"o": [
+"owing to her",
+"owing her",
+"owing for her",
+"owe to her"
+],
+"a": 0
+},
+{
+"part": "p4",
+"q": "\"I can't wait to see you.\" (FORWARD) → I'm really ___ you.",
+"o": [
+"looking forward to seeing",
+"looking forward to see",
+"looking forward seeing",
+"forward looking to see"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "The negotiations ___ down after three days.",
+"o": [
+"broke",
+"fell",
+"went",
+"turned"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "I can't ___ up with this noise any longer!",
+"o": [
+"put",
+"get",
+"keep",
+"stand"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "We need to ___ up with a better plan.",
+"o": [
+"come",
+"go",
+"get",
+"make"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "She ___ after her mother – they're very similar.",
+"o": [
+"takes",
+"looks",
+"goes",
+"comes"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "The match was called ___ because of the storm.",
+"o": [
+"off",
+"out",
+"up",
+"down"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "He ___ out to be a really nice guy.",
+"o": [
+"turned",
+"came",
+"went",
+"worked"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "Prices have gone ___ again. Everything is more expensive.",
+"o": [
+"up",
+"over",
+"through",
+"on"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "I'll have to ___ up on my French before the trip.",
+"o": [
+"brush",
+"clean",
+"wash",
+"dust"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "They ___ out a survey to find out what customers think.",
+"o": [
+"carried",
+"took",
+"made",
+"did"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "Can you ___ me through the process step by step?",
+"o": [
+"talk",
+"speak",
+"tell",
+"say"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "The thief ___ away with all the jewellery.",
+"o": [
+"got",
+"took",
+"went off",
+"came"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "I don't know how she ___ up with his behaviour.",
+"o": [
+"puts",
+"gets",
+"keeps",
+"takes"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "We ___ across an amazing little restaurant by chance.",
+"o": [
+"came",
+"went",
+"ran over",
+"got"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "The fire alarm ___ off during the exam.",
+"o": [
+"went",
+"set",
+"took",
+"put"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "The government plans to ___ down on illegal parking.",
+"o": [
+"crack",
+"break",
+"cut out",
+"shut"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "If I ___ about the traffic, I would have left earlier.",
+"o": [
+"had known",
+"knew",
+"would know",
+"have known"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "By next June, she ___ her degree.",
+"o": [
+"will have finished",
+"will finish already",
+"finishes",
+"has finished"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "He denied ___ the window.",
+"o": [
+"breaking",
+"to break",
+"break",
+"to have broke"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "I'm used to ___ up early now.",
+"o": [
+"getting",
+"get",
+"got",
+"have got"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "The children were made ___ their rooms.",
+"o": [
+"to tidy",
+"tidy",
+"tidying",
+"tidied"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "She suggested ___ to the cinema.",
+"o": [
+"going",
+"to go",
+"us to go",
+"go"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "I remember ___ him at a party years ago.",
+"o": [
+"meeting",
+"to meet",
+"meet",
+"met"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "Remember ___ the door when you leave!",
+"o": [
+"to lock",
+"locking",
+"lock",
+"locked"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "Unless you ___, you'll miss the bus.",
+"o": [
+"hurry",
+"don't hurry",
+"will hurry",
+"hurried not"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "The report ___ by the time the boss arrived.",
+"o": [
+"had been finished",
+"has been finished",
+"was finishing",
+"had finished by"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "She's the woman ___ husband is a famous chef.",
+"o": [
+"whose",
+"who's",
+"that",
+"which"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "I'd rather ___ at home tonight.",
+"o": [
+"stay",
+"to stay",
+"staying",
+"stayed"
+],
+"a": 0
+}
+],
+"golden": [
+{
+"part": "p3",
+"q": "Word formation (SUCCEED): \"She was ___ in her new career.\"",
+"a": [
+"successful"
+]
+},
+{
+"part": "p3",
+"q": "Word formation (DECIDE): \"He's very ___ and can't choose anything.\"",
+"a": [
+"indecisive"
+]
+},
+{
+"part": "p3",
+"q": "Word formation (APPEAR): \"The ___ of the magician surprised the kids.\"",
+"a": [
+"appearance"
+]
+},
+{
+"part": "p3",
+"q": "Word formation (RESPONSIBLE): \"Leaving the door open was very ___.\"",
+"a": [
+"irresponsible"
+]
+},
+{
+"part": "p3",
+"q": "Word formation (ACHIEVE): \"Winning the prize was a great ___.\"",
+"a": [
+"achievement"
+]
+},
+{
+"part": "p3",
+"q": "Word formation (STRONG): \"We need to ___ the walls.\"",
+"a": [
+"strengthen"
+]
+},
+{
+"part": "p3",
+"q": "Word formation (EMPLOY): \"Many ___ lost their jobs.\"",
+"a": [
+"employees"
+]
+},
+{
+"part": "p3",
+"q": "Word formation (PATIENT): \"He waited ___ for an hour.\"",
+"a": [
+"patiently"
+]
+},
+{
+"part": "p2",
+"q": "Write ONE word: \"___ of the students passed the test – it was too hard.\"",
+"a": [
+"none",
+"few"
+]
+},
+{
+"part": "p2",
+"q": "Write ONE word: \"I can't swim, let ___ dive.\"",
+"a": [
+"alone"
+]
+},
+{
+"part": "p2",
+"q": "Write ONE word: \"Hardly ___ we arrived when it started raining.\"",
+"a": [
+"had"
+]
+},
+{
+"part": "p2",
+"q": "Write ONE word: \"She's not ___ tall as her sister.\"",
+"a": [
+"as",
+"so"
+]
+},
+{
+"part": "p2",
+"q": "Write ONE word: \"There's no point ___ waiting.\"",
+"a": [
+"in"
+]
+},
+{
+"part": "p4",
+"q": "KWT (LAST): \"I haven't seen him for years.\" → I ___ years ago. (3 words)",
+"a": [
+"last saw him"
+]
+},
+{
+"part": "p4",
+"q": "KWT (SAID): \"People say she is a genius.\" → She ___ a genius. (4 words)",
+"a": [
+"is said to be"
+]
+},
+{
+"part": "p4",
+"q": "KWT (RATHER): \"I'd prefer to walk.\" → I ___ walk. (2 words)",
+"a": [
+"would rather",
+"'d rather"
+]
+},
+{
+"part": "p4",
+"q": "KWT (MAY): \"Perhaps he forgot.\" → He ___ forgotten. (2 words)",
+"a": [
+"may have"
+]
+},
+{
+"part": "phrasal",
+"q": "Write ONE word: \"The meeting was called ___ due to the storm.\"",
+"a": [
+"off"
+]
+},
+{
+"part": "phrasal",
+"q": "Write ONE word: \"I can't put ___ with this noise.\"",
+"a": [
+"up"
+]
+},
+{
+"part": "phrasal",
+"q": "Write ONE word: \"She takes ___ her father – same eyes, same smile.\"",
+"a": [
+"after"
+]
+}
+]
+}

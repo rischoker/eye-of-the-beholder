@@ -1,0 +1,1232 @@
+{
+"parts": {
+"message": {
+"name": "PET Part 1 · Short messages",
+"m": 1.6
+},
+"cloze": {
+"name": "PET Part 5 · Multiple-choice cloze",
+"m": 1.1
+},
+"open": {
+"name": "PET Part 6 · Open cloze",
+"m": 1.1
+},
+"phrasal": {
+"name": "Phrasal verbs",
+"m": 1.0
+},
+"tenses": {
+"name": "Verb tenses",
+"m": 1.1
+},
+"compare": {
+"name": "Comparisons",
+"m": 1.0
+}
+},
+"questions": [
+{
+"part": "message",
+"q": "EMAIL: \"Hi Jo, the concert's been moved from Friday to Saturday, same time. Still OK for you? – Max\" Why is Max writing?",
+"o": [
+"to check Jo can come on a different day",
+"to invite Jo to a new concert",
+"to cancel the concert completely",
+"to change the start time"
+],
+"a": 0
+},
+{
+"part": "message",
+"q": "NOTICE: \"Gym members: the pool will be closed for repairs this week. The sauna remains open as usual.\"",
+"o": [
+"Members can still use the sauna.",
+"The whole gym is closed this week.",
+"The sauna is being repaired.",
+"The pool opens later than usual."
+],
+"a": 0
+},
+{
+"part": "message",
+"q": "TEXT: \"Running 15 mins late – start the meeting without me and I'll catch up. Dan\"",
+"o": [
+"Dan wants the others to begin before he arrives.",
+"Dan has cancelled the meeting.",
+"Dan wants to change the meeting time.",
+"Dan won't come to the meeting."
+],
+"a": 0
+},
+{
+"part": "message",
+"q": "NOTICE: \"Tickets can be refunded up to 48 hours before the performance.\"",
+"o": [
+"You can get your money back if you ask two days early.",
+"Tickets cost 48 dollars.",
+"The performance lasts 48 hours.",
+"You can't get a refund."
+],
+"a": 0
+},
+{
+"part": "message",
+"q": "EMAIL: \"Thanks for the invitation! I'd love to come, but I'm away that weekend. Next time?\"",
+"o": [
+"The writer is refusing politely.",
+"The writer is accepting the invitation.",
+"The writer is inviting someone.",
+"The writer is asking for directions."
+],
+"a": 0
+},
+{
+"part": "message",
+"q": "LABEL: \"Keep refrigerated. Consume within 3 days of opening.\"",
+"o": [
+"Eat it soon after you open it.",
+"Don't put it in the fridge.",
+"It lasts three weeks once open.",
+"Open it within three days of buying it."
+],
+"a": 0
+},
+{
+"part": "message",
+"q": "NOTICE: \"Volunteers needed to help at the school fair. No experience necessary.\"",
+"o": [
+"Anyone can offer to help.",
+"You need experience to help.",
+"Volunteers will be paid.",
+"The fair has been cancelled."
+],
+"a": 0
+},
+{
+"part": "message",
+"q": "TEXT: \"Mum says you can borrow the car, but fill it up with petrol before you bring it back.\"",
+"o": [
+"The car must be returned with a full tank.",
+"Mum needs petrol now.",
+"You can't borrow the car.",
+"The car is broken."
+],
+"a": 0
+},
+{
+"part": "message",
+"q": "NOTICE: \"Late homework will only be accepted with a note from parents.\"",
+"o": [
+"Students need a parent's note if homework is late.",
+"Parents must do the homework.",
+"No late homework is accepted at all.",
+"Homework is due on parents' day."
+],
+"a": 0
+},
+{
+"part": "message",
+"q": "EMAIL: \"I've attached the photos from the trip. Let me know if you can't open them.\"",
+"o": [
+"The writer is sending pictures.",
+"The writer wants the reader's photos.",
+"The writer couldn't open the photos.",
+"The writer is planning a trip."
+],
+"a": 0
+},
+{
+"part": "message",
+"q": "NOTICE: \"Cyclists must dismount on this bridge.\"",
+"o": [
+"You must walk with your bike here.",
+"Bikes are not allowed in the city.",
+"Cyclists must ride faster.",
+"The bridge is only for bikes."
+],
+"a": 0
+},
+{
+"part": "message",
+"q": "TEXT: \"Can't find my keys – did I leave them at yours last night? Pls check! Ella\"",
+"o": [
+"Ella thinks her keys might be at her friend's house.",
+"Ella found her friend's keys.",
+"Ella wants to borrow some keys.",
+"Ella left her keys at work."
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "I didn't ___ the bus, so I had to walk home.",
+"o": [
+"catch",
+"take up",
+"get on with",
+"reach"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "Can you ___ an eye on my bag while I go to the toilet?",
+"o": [
+"keep",
+"have",
+"hold",
+"put"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "She ___ a mistake in the last question.",
+"o": [
+"made",
+"did",
+"had",
+"took"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "The weather was terrible, so they ___ the match.",
+"o": [
+"cancelled",
+"removed",
+"lost",
+"stopped off"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "I'm really looking forward ___ seeing you.",
+"o": [
+"to",
+"for",
+"at",
+"of"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "It's important to ___ attention in class.",
+"o": [
+"pay",
+"give",
+"take",
+"make"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "He ___ his exam because he hadn't studied.",
+"o": [
+"failed",
+"lost",
+"missed",
+"dropped"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "We ___ our holiday in a small village in the mountains.",
+"o": [
+"spent",
+"passed",
+"used",
+"took up"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "The hotel ___ a beautiful view of the sea.",
+"o": [
+"has",
+"makes",
+"does",
+"holds up"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "It's ___ a long time since I last saw her.",
+"o": [
+"been",
+"gone",
+"had",
+"done"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "Please ___ in touch while you're abroad.",
+"o": [
+"keep",
+"stay at",
+"hold",
+"make"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "He doesn't ___ any attention to what I say.",
+"o": [
+"pay",
+"give",
+"do",
+"make"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "I couldn't ___ my mind which dress to buy.",
+"o": [
+"make up",
+"take up",
+"do up",
+"set up"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "The museum is ___ visiting – it's fantastic.",
+"o": [
+"worth",
+"value",
+"useful",
+"good for"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "There was a long ___ of people outside the cinema.",
+"o": [
+"queue",
+"line up",
+"group",
+"crowd line"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "They ___ me to bring a jacket because it might get cold.",
+"o": [
+"advised",
+"suggested",
+"said",
+"explained"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "The ___ of living in big cities is very high.",
+"o": [
+"cost",
+"price",
+"value",
+"money"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "I'm sorry, I didn't ___ to break your glass.",
+"o": [
+"mean",
+"want to say",
+"think",
+"hope"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "She works as a ___ in a busy restaurant kitchen.",
+"o": [
+"chef",
+"cooker",
+"kitchener",
+"cookist"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "The concert was a huge ___ – everyone loved it.",
+"o": [
+"success",
+"win",
+"victory",
+"prize"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "Can you ___ me a favor?",
+"o": [
+"do",
+"make",
+"give",
+"take"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "He ___ to be a famous singer, but nobody knows him.",
+"o": [
+"claims",
+"says",
+"tells",
+"speaks"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "I've been waiting ___ over an hour!",
+"o": [
+"for",
+"since",
+"during",
+"from"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "She's lived in Medellín ___ she was a child.",
+"o": [
+"since",
+"for",
+"from",
+"during"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "___ it was raining, we went for a walk.",
+"o": [
+"Although",
+"Because",
+"Despite",
+"However"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "We went out ___ the rain.",
+"o": [
+"despite",
+"although",
+"even",
+"but"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "The film ___ we saw last night was brilliant.",
+"o": [
+"that",
+"who",
+"what",
+"where"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "He's the only person ___ can help us.",
+"o": [
+"who",
+"which",
+"whose",
+"whom he"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "I don't know ___ she will come or not.",
+"o": [
+"whether",
+"if not",
+"that",
+"what"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "You can borrow my bike ___ long as you're careful.",
+"o": [
+"as",
+"so",
+"such",
+"while"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "I'm not used ___ getting up so early.",
+"o": [
+"to",
+"for",
+"of",
+"with"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "Neither Tom ___ Sara came to the party.",
+"o": [
+"nor",
+"or",
+"and",
+"but"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "She was ___ tired that she fell asleep on the bus.",
+"o": [
+"so",
+"such",
+"very much",
+"too much"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "It was ___ a good film that I watched it twice.",
+"o": [
+"such",
+"so",
+"very",
+"too"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "Let's leave early ___ that we don't miss the train.",
+"o": [
+"so",
+"in case",
+"because",
+"unless"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "Take an umbrella ___ case it rains.",
+"o": [
+"in",
+"on",
+"for",
+"at"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "I'll lend you the money ___ you pay me back next week.",
+"o": [
+"if",
+"unless",
+"although",
+"whether"
+],
+"a": 0
+},
+{
+"part": "open",
+"q": "He apologized ___ being late.",
+"o": [
+"for",
+"of",
+"about to",
+"with"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "We've ___ of milk. Can you buy some?",
+"o": [
+"run out",
+"run away",
+"run into",
+"run over"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "Please ___ the form and give it back to me.",
+"o": [
+"fill in",
+"fill up",
+"fill out of",
+"fill on"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "I'll ___ you up at the airport at 6.",
+"o": [
+"pick",
+"take",
+"get",
+"bring"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "Could you ___ the music down? I'm trying to sleep.",
+"o": [
+"turn",
+"put",
+"set",
+"take"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "She ___ up smoking last year. Good for her!",
+"o": [
+"gave",
+"put",
+"took",
+"turned"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "My grandmother ___ me up when my parents were working abroad.",
+"o": [
+"brought",
+"grew",
+"took",
+"gave"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "Don't ___ up! You're nearly there!",
+"o": [
+"give",
+"put",
+"get",
+"take"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "Can you ___ after my dog this weekend?",
+"o": [
+"look",
+"take",
+"see",
+"care"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "I ___ into an old friend at the supermarket.",
+"o": [
+"ran",
+"went",
+"came",
+"fell"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "The plane ___ off two hours late.",
+"o": [
+"took",
+"went",
+"got",
+"set"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "We need to ___ out how to fix this.",
+"o": [
+"figure",
+"make",
+"take",
+"look"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "I ___ on really well with my cousin.",
+"o": [
+"get",
+"go",
+"come",
+"take"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "Let's ___ off the meeting until next week.",
+"o": [
+"put",
+"take",
+"set",
+"turn"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "Can you ___ up this word in the dictionary?",
+"o": [
+"look",
+"find",
+"search",
+"see"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "The alarm ___ off at 5 a.m. and woke everyone.",
+"o": [
+"went",
+"took",
+"set",
+"put"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "I'm going to ___ up yoga. I need to relax.",
+"o": [
+"take",
+"make",
+"give",
+"pick out"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "The car ___ down on the motorway.",
+"o": [
+"broke",
+"went",
+"fell",
+"turned"
+],
+"a": 0
+},
+{
+"part": "phrasal",
+"q": "I'm really ___ forward to the holidays.",
+"o": [
+"looking",
+"seeing",
+"waiting",
+"hoping"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "By the time we arrived, the film ___.",
+"o": [
+"had already started",
+"already started",
+"has already started",
+"was already start"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "I ___ English for three years now.",
+"o": [
+"have been studying",
+"study",
+"am studying",
+"studied"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "This time tomorrow I ___ on the beach.",
+"o": [
+"will be lying",
+"have lain",
+"lie",
+"was lying"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "When I was a child, I ___ climb trees every day.",
+"o": [
+"used to",
+"use to",
+"was used to",
+"am used to"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "If I ___ more money, I would travel the world.",
+"o": [
+"had",
+"have",
+"would have",
+"will have"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "If you heat ice, it ___.",
+"o": [
+"melts",
+"will melted",
+"melted",
+"would melt yesterday"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "The bridge ___ in 1890.",
+"o": [
+"was built",
+"built",
+"is built",
+"has build"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "English ___ in many countries around the world.",
+"o": [
+"is spoken",
+"speaks",
+"is speaking",
+"spoke"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "She asked me where I ___.",
+"o": [
+"lived",
+"did I live",
+"do I live",
+"did live I"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "He said he ___ come to the party.",
+"o": [
+"would",
+"is",
+"can't to",
+"has"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "I wish I ___ play the guitar.",
+"o": [
+"could",
+"can",
+"will",
+"would can"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "You ___ have seen her – she's in Japan right now.",
+"o": [
+"can't",
+"mustn't",
+"shouldn't",
+"needn't to"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "I'm sure they ___ be at home – the lights are on.",
+"o": [
+"must",
+"can't",
+"mustn't",
+"should to"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "We ___ go to school tomorrow. It's a holiday!",
+"o": [
+"don't have to",
+"mustn't",
+"haven't",
+"can't to"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "How long ___ you known each other?",
+"o": [
+"have",
+"did",
+"do",
+"are"
+],
+"a": 0
+},
+{
+"part": "tenses",
+"q": "I ___ my keys. I can't find them anywhere!",
+"o": [
+"have lost",
+"had lost",
+"lose",
+"am losing"
+],
+"a": 0
+},
+{
+"part": "compare",
+"q": "This exercise is ___ than the last one.",
+"o": [
+"easier",
+"more easy",
+"easyer",
+"easiest"
+],
+"a": 0
+},
+{
+"part": "compare",
+"q": "She's the ___ student in the class.",
+"o": [
+"most intelligent",
+"more intelligent",
+"intelligentest",
+"much intelligent"
+],
+"a": 0
+},
+{
+"part": "compare",
+"q": "My new phone is much ___ than my old one.",
+"o": [
+"better",
+"more good",
+"best",
+"gooder"
+],
+"a": 0
+},
+{
+"part": "compare",
+"q": "The more you practice, the ___ you get.",
+"o": [
+"better",
+"best",
+"good",
+"more better"
+],
+"a": 0
+},
+{
+"part": "compare",
+"q": "Today isn't ___ cold as yesterday.",
+"o": [
+"as",
+"so much",
+"than",
+"like"
+],
+"a": 0
+},
+{
+"part": "compare",
+"q": "He runs ___ than his brother.",
+"o": [
+"faster",
+"more fast",
+"fastly",
+"more faster"
+],
+"a": 0
+},
+{
+"part": "compare",
+"q": "This is ___ interesting book I've ever read.",
+"o": [
+"the most",
+"more",
+"the more",
+"most of"
+],
+"a": 0
+},
+{
+"part": "compare",
+"q": "Trains are ___ comfortable than buses.",
+"o": [
+"more",
+"most",
+"much",
+"the more"
+],
+"a": 0
+},
+{
+"part": "compare",
+"q": "My house is ___ from school than yours.",
+"o": [
+"further",
+"furthest",
+"more far",
+"farest"
+],
+"a": 0
+},
+{
+"part": "compare",
+"q": "It's getting ___ and ___ difficult.",
+"o": [
+"more / more",
+"most / most",
+"much / much",
+"the / the"
+],
+"a": 0
+},
+{
+"part": "compare",
+"q": "She sings ___ than anyone I know.",
+"o": [
+"more beautifully",
+"more beautiful",
+"beautifuller",
+"most beautifully"
+],
+"a": 0
+},
+{
+"part": "compare",
+"q": "This is the ___ day of my life!",
+"o": [
+"worst",
+"baddest",
+"worse",
+"most bad"
+],
+"a": 0
+}
+],
+"golden": [
+{
+"part": "open",
+"q": "Write ONE word: \"I've been learning English ___ I was eight.\"",
+"a": [
+"since"
+]
+},
+{
+"part": "open",
+"q": "Write ONE word: \"She's not used ___ living alone.\"",
+"a": [
+"to"
+]
+},
+{
+"part": "open",
+"q": "Write ONE word: \"It was ___ a hot day that we stayed inside.\"",
+"a": [
+"such"
+]
+},
+{
+"part": "open",
+"q": "Write ONE word: \"Take a map in ___ you get lost.\"",
+"a": [
+"case"
+]
+},
+{
+"part": "open",
+"q": "Write ONE word: \"Neither my brother ___ I can swim.\"",
+"a": [
+"nor"
+]
+},
+{
+"part": "open",
+"q": "Write ONE word: \"He's the man ___ car was stolen.\"",
+"a": [
+"whose"
+]
+},
+{
+"part": "open",
+"q": "Write ONE word: \"You can go out as ___ as you're home by ten.\"",
+"a": [
+"long"
+]
+},
+{
+"part": "phrasal",
+"q": "Write ONE word: \"We've run ___ of sugar.\"",
+"a": [
+"out"
+]
+},
+{
+"part": "phrasal",
+"q": "Write ONE word: \"Could you look ___ my cat while I'm away?\"",
+"a": [
+"after"
+]
+},
+{
+"part": "phrasal",
+"q": "Write ONE word: \"I get ___ well with my neighbors.\"",
+"a": [
+"on",
+"along"
+]
+},
+{
+"part": "tenses",
+"q": "Write the passive: \"They built this house in 1950.\" → This house ___ built in 1950.",
+"a": [
+"was"
+]
+},
+{
+"part": "tenses",
+"q": "Write the correct form: \"If I ___ (be) you, I'd study more.\"",
+"a": [
+"were",
+"was"
+]
+},
+{
+"part": "tenses",
+"q": "Write the correct form: \"She ___ (live) here since 2015.\"",
+"a": [
+"has lived",
+"has been living",
+"'s lived"
+]
+},
+{
+"part": "compare",
+"q": "Write the comparative: \"This bag is ___ (heavy) than that one.\"",
+"a": [
+"heavier"
+]
+},
+{
+"part": "compare",
+"q": "Write the superlative: \"It's the ___ (good) pizza in town.\"",
+"a": [
+"best"
+]
+},
+{
+"part": "cloze",
+"q": "Write the noun from \"explain\": \"Can you give me an ___?\"",
+"a": [
+"explanation"
+]
+},
+{
+"part": "cloze",
+"q": "Write the noun from \"arrive\": \"the ___ of the train\"",
+"a": [
+"arrival"
+]
+},
+{
+"part": "cloze",
+"q": "Write the adjective from \"danger\": a ___ road",
+"a": [
+"dangerous"
+]
+},
+{
+"part": "cloze",
+"q": "Write the adjective from \"comfort\": a ___ chair",
+"a": [
+"comfortable"
+]
+},
+{
+"part": "cloze",
+"q": "Write the noun from \"decide\": I made a ___.",
+"a": [
+"decision"
+]
+}
+]
+}

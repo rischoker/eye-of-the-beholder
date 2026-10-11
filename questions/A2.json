@@ -1,0 +1,1140 @@
+{
+"parts": {
+"sign": {
+"name": "KET Part 1 · Notices & messages",
+"m": 1.5
+},
+"reply": {
+"name": "KET · Conversations",
+"m": 1.1
+},
+"cloze": {
+"name": "KET Part 4 · Vocabulary cloze",
+"m": 1.0
+},
+"grammar": {
+"name": "KET Part 5 · Grammar",
+"m": 1.0
+},
+"verbs": {
+"name": "Verb forms",
+"m": 1.0
+}
+},
+"questions": [
+{
+"part": "sign",
+"q": "NOTICE: \"Swimming pool closed for cleaning until Thursday.\"",
+"o": [
+"You can swim again from Thursday.",
+"The pool is cleaned every Thursday.",
+"You must clean the pool before swimming.",
+"The pool is only open on Thursdays."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "NOTICE: \"Students must not use phones during the exam.\"",
+"o": [
+"Phones are not allowed in the exam.",
+"Students need a phone for the exam.",
+"You can call the teacher during the exam.",
+"The exam is about phones."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "NOTICE: \"Lost: black cat with white feet. Please call Tim – 555 0172.\"",
+"o": [
+"Tim wants help finding his cat.",
+"Tim found a black cat.",
+"Tim is selling a cat.",
+"Tim's cat has black feet."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "MESSAGE: \"Mum, I'll be home late – football practice finishes at 7. Leo\"",
+"o": [
+"Leo will get home after 7.",
+"Leo doesn't have practice today.",
+"Leo's mum must pick him up at 7.",
+"Leo is playing football at home."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "NOTICE: \"Café – Buy two coffees, get a cake free!\"",
+"o": [
+"You get a free cake with two coffees.",
+"Cakes are free for everyone.",
+"Coffee is free with a cake.",
+"You must buy two cakes."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "NOTICE: \"Library books must be returned within 14 days.\"",
+"o": [
+"You can keep a book for two weeks.",
+"You can borrow 14 books.",
+"The library is open 14 days a month.",
+"Books cost 14 dollars."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "NOTICE: \"Please leave your bags at reception before entering the museum.\"",
+"o": [
+"Don't take your bag into the museum.",
+"You can buy bags at reception.",
+"Bags are free at the museum.",
+"Reception is inside the museum."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "MESSAGE: \"Sara – the cinema's full tonight. Can we go tomorrow instead? Kim\"",
+"o": [
+"Kim wants to change the day.",
+"Kim has two tickets for tonight.",
+"Kim doesn't want to go to the cinema.",
+"Kim is at the cinema now."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "NOTICE: \"Bus 42 does not stop here on Sundays.\"",
+"o": [
+"You can't catch the 42 here on Sunday.",
+"The 42 only runs on Sundays.",
+"Bus 42 is always late.",
+"Bus 42 stops here every day."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "NOTICE: \"School trip: bring a packed lunch and wear comfortable shoes.\"",
+"o": [
+"Students need to take food.",
+"Lunch will be provided on the trip.",
+"Students must buy new shoes.",
+"There is no trip this week."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "NOTICE: \"Sale! Everything half price this weekend only.\"",
+"o": [
+"Things cost 50% less on Saturday and Sunday.",
+"The shop is closed this weekend.",
+"Prices go up this weekend.",
+"The sale lasts all month."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "MESSAGE: \"Dad – I've borrowed your umbrella. I'll give it back tonight. Ana\"",
+"o": [
+"Ana has her father's umbrella.",
+"Ana lost her umbrella.",
+"Ana wants to buy an umbrella.",
+"Ana's dad needs to borrow an umbrella."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "NOTICE: \"Lift out of order. Please use the stairs.\"",
+"o": [
+"You must walk up.",
+"The stairs are closed.",
+"The lift is working again.",
+"Order your food here."
+],
+"a": 0
+},
+{
+"part": "sign",
+"q": "NOTICE: \"Children under 12 must be with an adult.\"",
+"o": [
+"Young children can't come alone.",
+"Adults must be under 12.",
+"Only children can come in.",
+"Children pay $12."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Would you like a drink?\"",
+"o": [
+"Yes, please. Some orange juice.",
+"Yes, I would like it yesterday.",
+"No, I don't drink it now usually.",
+"I like."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"How long does it take to get to school?\"",
+"o": [
+"About twenty minutes.",
+"It's very long.",
+"By bus, please.",
+"Since 2019."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Have you ever been to Mexico?\"",
+"o": [
+"No, never.",
+"No, I haven't gone yesterday.",
+"Yes, I go.",
+"I was in."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Can you help me with this box?\"",
+"o": [
+"Sure, no problem.",
+"Yes, you can.",
+"It's a box.",
+"I'm helping yesterday."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"What does your brother look like?\"",
+"o": [
+"He's tall with dark hair.",
+"He likes football.",
+"He's fine, thanks.",
+"He looks at TV."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Shall we meet at the station?\"",
+"o": [
+"OK, what time?",
+"Yes, we shall met.",
+"I don't station.",
+"It's far, thanks."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"I've got a terrible headache.\"",
+"o": [
+"Oh no! Do you want an aspirin?",
+"Congratulations!",
+"That's a good idea.",
+"You're welcome."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Excuse me, is this seat free?\"",
+"o": [
+"Yes, sit down.",
+"It costs nothing.",
+"No, I'm free.",
+"Free time is great."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"What are you doing this weekend?\"",
+"o": [
+"I'm visiting my grandparents.",
+"I visited my grandparents.",
+"I visit them since Monday.",
+"At the weekend."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"How much are these shoes?\"",
+"o": [
+"They're 40 dollars.",
+"They're size 38.",
+"They're very much.",
+"They're black."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"I passed my driving test!\"",
+"o": [
+"Well done!",
+"Never mind.",
+"Bad luck!",
+"Me neither."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Do you mind if I open the window?\"",
+"o": [
+"No, go ahead.",
+"Yes, please open.",
+"I don't mind it closed open.",
+"Window, please."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"Why don't we go swimming?\"",
+"o": [
+"That sounds fun!",
+"Because it's Tuesday.",
+"I don't know why.",
+"Yes, we don't."
+],
+"a": 0
+},
+{
+"part": "reply",
+"q": "\"How often do you go to the gym?\"",
+"o": [
+"Twice a week.",
+"For two hours.",
+"Two years ago.",
+"At the gym."
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "I'm going to ___ a cake for my mum's birthday.",
+"o": [
+"make",
+"do",
+"take",
+"have"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "Can you ___ me the time, please?",
+"o": [
+"tell",
+"say",
+"speak",
+"talk"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "We ___ a great time at the party.",
+"o": [
+"had",
+"made",
+"did",
+"took"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "Please ___ off your shoes before you come in.",
+"o": [
+"take",
+"put",
+"get",
+"make"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "I always ___ my homework after dinner.",
+"o": [
+"do",
+"make",
+"take",
+"have"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "It's very ___ today – wear a jacket.",
+"o": [
+"windy",
+"sunny",
+"hot",
+"dry"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "My flight ___ off at 6 a.m.",
+"o": [
+"takes",
+"gets",
+"goes",
+"puts"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "Can I ___ your pen for a minute?",
+"o": [
+"borrow",
+"lend",
+"give",
+"keep"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "Could you ___ me some money until Friday?",
+"o": [
+"lend",
+"borrow",
+"pay",
+"spend"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "The film was so ___ that I fell asleep.",
+"o": [
+"boring",
+"bored",
+"exciting",
+"funny"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "I'm ___ in science. It's my favorite subject.",
+"o": [
+"interested",
+"interesting",
+"boring",
+"bored"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "He ___ the bus every morning at 7:15.",
+"o": [
+"catches",
+"takes up",
+"goes",
+"drives on"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "She ___ a photo of the sunset.",
+"o": [
+"took",
+"made",
+"did",
+"got"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "You should ___ a doctor about that cough.",
+"o": [
+"see",
+"look",
+"watch",
+"meet up"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "Don't forget to ___ the lights when you leave.",
+"o": [
+"turn off",
+"turn on",
+"turn up",
+"turn into"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "We stayed in a small ___ near the beach.",
+"o": [
+"hotel",
+"station",
+"airport",
+"hospital"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "I need to ___ some money from the cash machine.",
+"o": [
+"take out",
+"take off",
+"take up",
+"take on"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "My brother ___ in a bank. He's a cashier.",
+"o": [
+"works",
+"does",
+"makes",
+"jobs"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "It's a long ___ from Bogotá to Madrid.",
+"o": [
+"flight",
+"travel",
+"trip of flying",
+"voyage boat"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "What's on ___ tonight?",
+"o": [
+"TV",
+"radio show",
+"the cinema film",
+"television program"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "I'd like to ___ a table for two, please.",
+"o": [
+"book",
+"buy",
+"order",
+"pay"
+],
+"a": 0
+},
+{
+"part": "cloze",
+"q": "Our teacher ___ us a lot of homework.",
+"o": [
+"gives",
+"does",
+"makes",
+"takes"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "I ___ to the cinema last weekend.",
+"o": [
+"went",
+"go",
+"have gone",
+"was go"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "She ___ in London since 2020.",
+"o": [
+"has lived",
+"lives",
+"lived",
+"is living"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "___ you ever eaten sushi?",
+"o": [
+"Have",
+"Did",
+"Do",
+"Are"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "We ___ dinner when the phone rang.",
+"o": [
+"were having",
+"had",
+"have",
+"are having"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "This is the ___ film I've ever seen!",
+"o": [
+"best",
+"better",
+"good",
+"most good"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "Paris is ___ than Rome. (expensive)",
+"o": [
+"more expensive",
+"expensiver",
+"most expensive",
+"expensive"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "I'm not as tall ___ my brother.",
+"o": [
+"as",
+"than",
+"like",
+"that"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "There isn't ___ milk in the fridge.",
+"o": [
+"any",
+"some",
+"many",
+"a"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "How ___ sugar do you take in your coffee?",
+"o": [
+"much",
+"many",
+"lot",
+"few"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "I'll call you ___ I arrive.",
+"o": [
+"when",
+"while",
+"during",
+"since"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "He didn't come ___ he was ill.",
+"o": [
+"because",
+"so",
+"but",
+"although"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "You ___ wear a uniform at my school. It's a rule.",
+"o": [
+"must",
+"can",
+"might",
+"would"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "You ___ bring food. There's a café there. (it's not necessary)",
+"o": [
+"don't have to",
+"mustn't",
+"can't",
+"shouldn't to"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "Look at those clouds! It ___ rain.",
+"o": [
+"is going to",
+"will to",
+"goes",
+"is raining to"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "The boy ___ won the race is my cousin.",
+"o": [
+"who",
+"which",
+"where",
+"whose"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "That's the restaurant ___ we had lunch.",
+"o": [
+"where",
+"which",
+"who",
+"when"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "I'm good ___ drawing.",
+"o": [
+"at",
+"in",
+"on",
+"for"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "She's afraid ___ dogs.",
+"o": [
+"of",
+"from",
+"at",
+"with"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "We arrived ___ the airport late.",
+"o": [
+"at",
+"to",
+"in to",
+"on"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "Let's meet ___ Friday afternoon.",
+"o": [
+"on",
+"in",
+"at",
+"by"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "If it rains, we ___ at home.",
+"o": [
+"will stay",
+"stayed",
+"would stay",
+"staying"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "I've ___ finished my homework. Can I go out?",
+"o": [
+"just",
+"yet",
+"ever",
+"still"
+],
+"a": 0
+},
+{
+"part": "grammar",
+"q": "Have you finished ___?",
+"o": [
+"yet",
+"just",
+"already ever",
+"still"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "I'm tired. I ___ well last night.",
+"o": [
+"didn't sleep",
+"don't sleep",
+"wasn't sleep",
+"haven't slept yet"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "He usually ___ coffee, but today he's drinking tea.",
+"o": [
+"drinks",
+"is drinking",
+"drink",
+"drank"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "Past simple of \"buy\"",
+"o": [
+"bought",
+"buyed",
+"brought",
+"buy"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "Past simple of \"bring\"",
+"o": [
+"brought",
+"bringed",
+"bought",
+"brang"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "Past simple of \"teach\"",
+"o": [
+"taught",
+"teached",
+"thought",
+"tought"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "Past simple of \"think\"",
+"o": [
+"thought",
+"thinked",
+"taught",
+"thank"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "Past simple of \"write\"",
+"o": [
+"wrote",
+"writed",
+"written",
+"writ"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "Past participle of \"speak\"",
+"o": [
+"spoken",
+"spoke",
+"speaked",
+"speak"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "Past participle of \"break\"",
+"o": [
+"broken",
+"broke",
+"breaked",
+"brake"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "I enjoy ___ to music.",
+"o": [
+"listening",
+"listen",
+"to listen",
+"listened"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "I want ___ a new phone.",
+"o": [
+"to buy",
+"buying",
+"buy",
+"bought"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "Stop ___ ! I'm trying to work.",
+"o": [
+"talking",
+"to talk",
+"talk",
+"talked"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "She decided ___ a taxi.",
+"o": [
+"to take",
+"taking",
+"take",
+"took"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "They ___ football when it started to rain.",
+"o": [
+"were playing",
+"played",
+"are playing",
+"have played"
+],
+"a": 0
+},
+{
+"part": "verbs",
+"q": "Next summer we ___ to Cartagena. We've bought the tickets.",
+"o": [
+"are going",
+"go",
+"went",
+"have gone"
+],
+"a": 0
+}
+],
+"golden": [
+{
+"part": "grammar",
+"q": "Write ONE word: \"I have lived here ___ 2018.\"",
+"a": [
+"since"
+]
+},
+{
+"part": "grammar",
+"q": "Write ONE word: \"She has worked here ___ five years.\"",
+"a": [
+"for"
+]
+},
+{
+"part": "grammar",
+"q": "Write ONE word: \"Have you finished your homework ___?\"",
+"a": [
+"yet"
+]
+},
+{
+"part": "grammar",
+"q": "Write ONE word: \"This is the man ___ helped me.\"",
+"a": [
+"who",
+"that"
+]
+},
+{
+"part": "grammar",
+"q": "Write ONE word: \"There aren't ___ eggs left.\"",
+"a": [
+"any"
+]
+},
+{
+"part": "grammar",
+"q": "Write ONE word: \"My sister is taller ___ me.\"",
+"a": [
+"than"
+]
+},
+{
+"part": "grammar",
+"q": "Write ONE word: \"I'm interested ___ history.\"",
+"a": [
+"in"
+]
+},
+{
+"part": "grammar",
+"q": "Write ONE word: \"We ___ going to visit Grandma tomorrow.\"",
+"a": [
+"are",
+"'re"
+]
+},
+{
+"part": "verbs",
+"q": "Past simple of \"catch\"",
+"a": [
+"caught"
+]
+},
+{
+"part": "verbs",
+"q": "Past simple of \"fly\"",
+"a": [
+"flew"
+]
+},
+{
+"part": "verbs",
+"q": "Past participle of \"write\"",
+"a": [
+"written"
+]
+},
+{
+"part": "verbs",
+"q": "Past participle of \"eat\"",
+"a": [
+"eaten"
+]
+},
+{
+"part": "verbs",
+"q": "Past simple of \"fall\"",
+"a": [
+"fell"
+]
+},
+{
+"part": "cloze",
+"q": "Write the word: a person who flies planes",
+"a": [
+"pilot"
+]
+},
+{
+"part": "cloze",
+"q": "Write the word: the room where you take a shower",
+"a": [
+"bathroom"
+]
+},
+{
+"part": "cloze",
+"q": "Write the opposite of \"cheap\"",
+"a": [
+"expensive"
+]
+},
+{
+"part": "cloze",
+"q": "Write the word: the meal you eat in the evening",
+"a": [
+"dinner",
+"supper"
+]
+},
+{
+"part": "cloze",
+"q": "Write ONE word: \"Don't forget to turn ___ the lights.\"",
+"a": [
+"off"
+]
+},
+{
+"part": "grammar",
+"q": "Write the superlative: bad → the ___",
+"a": [
+"worst"
+]
+},
+{
+"part": "grammar",
+"q": "Write the comparative: far → ___",
+"a": [
+"farther",
+"further"
+]
+}
+]
+}

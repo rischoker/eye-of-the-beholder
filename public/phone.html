@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0b0708">
+<title>Eye of the Beholder · Controller</title>
+<link rel="stylesheet" href="/fonts.css">
+<style>
+:root {
+  --void: #0b0708; --crypt: #171012; --stone: #241a1c; --bone: #e9dcc4; --bone-dim: #a8998a;
+  --blood: #a3141b; --ember: #ff7a2a; --line: rgba(233,220,196,.14);
+  --display: "Grenze Gotisch", Georgia, serif; --body: "Alegreya Sans", system-ui, sans-serif;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; margin: 0; }
+body { background: radial-gradient(ellipse at 50% -10%, #2a1418 0%, var(--void) 60%); color: var(--bone); font-family: var(--body); font-size: 17px;
+  overflow: hidden; user-select: none; -webkit-user-select: none; touch-action: none; }
+.scr { position: fixed; inset: 0; padding: calc(env(safe-area-inset-top,0px) + 18px) 18px calc(env(safe-area-inset-bottom,0px) + 18px); display: flex; flex-direction: column; gap: 14px; }
+h1 { font-family: var(--display); font-weight: 900; font-size: 40px; line-height: .95; margin: 6px 0 0; text-align: center; letter-spacing: .01em; text-shadow: 0 0 22px rgba(163,20,27,.55); }
+h1 small { display: block; font-family: var(--body); font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--bone-dim); margin-top: 8px; font-weight: 500; }
+label { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--bone-dim); }
+input { width: 100%; font: 500 22px var(--body); color: var(--bone); background: var(--crypt); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; outline: none; }
+input:focus { border-color: var(--ember); }
+#code { text-transform: uppercase; letter-spacing: .4em; text-align: center; font-weight: 800; }
+.btn { font: 700 21px var(--display); letter-spacing: .04em; color: var(--bone); background: linear-gradient(#7d1016, #4c070b); border: 1px solid #b52a2f; border-radius: 12px; padding: 14px; width: 100%; }
+.btn:active { transform: translateY(1px); filter: brightness(1.15); }
+.btn:disabled { opacity: .45; }
+.err { color: #ff8b80; min-height: 20px; text-align: center; font-size: 15px; }
+.chars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.ch { position: relative; background: var(--crypt); border: 2px solid var(--line); border-radius: 12px; padding: 4px 4px 6px; text-align: center; font-size: 13px; color: var(--bone-dim); }
+.ch img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; filter: saturate(.85); }
+.ch.on { border-color: var(--ember); color: var(--bone); background: #2a1612; }
+.grow { flex: 1; min-height: 0; }
+.center { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; }
+.me { display: flex; align-items: center; gap: 12px; background: var(--crypt); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; }
+.me img { width: 54px; height: 54px; border-radius: 10px; background: #000; }
+.me .nm { font: 700 22px var(--display); }
+.chip { display: inline-block; width: 14px; height: 14px; border-radius: 50%; vertical-align: -2px; margin-left: 6px; border: 2px solid rgba(255,255,255,.4); }
+.status { margin-left: auto; text-align: right; font-size: 13px; color: var(--bone-dim); line-height: 1.25; }
+.status b { display: block; font: 700 20px var(--display); color: var(--bone); }
+.status b.dead { color: #c9c4ff; }
+/* question card */
+.q { background: rgba(23,16,18,.92); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; font-size: 18px; line-height: 1.3; }
+.q .lv { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--ember); margin-bottom: 4px; }
+.opts { display: grid; gap: 6px; margin-top: 8px; }
+.opt { display: flex; gap: 10px; align-items: center; font-size: 17px; }
+.opt i { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font: 900 17px var(--display); font-style: normal; color: #120a0a; box-shadow: 0 0 12px currentColor; }
+.opt.right { font-weight: 800; }
+.opt.wrong { opacity: .35; text-decoration: line-through; }
+/* joystick */
+#pad { position: relative; flex: 1; min-height: 160px; border-radius: 18px; border: 1px dashed var(--line); background: radial-gradient(circle, rgba(163,20,27,.10), transparent 70%); }
+#pad .hint { position: absolute; inset: auto 0 10px; text-align: center; color: var(--bone-dim); font-size: 13px; letter-spacing: .15em; text-transform: uppercase; pointer-events: none; }
+#base, #knob { position: absolute; border-radius: 50%; pointer-events: none; transform: translate(-50%,-50%); }
+#base { width: 150px; height: 150px; border: 2px solid rgba(233,220,196,.25); background: rgba(0,0,0,.25); }
+#knob { width: 70px; height: 70px; background: radial-gradient(circle at 35% 30%, #e05a3f, #6d0b10); box-shadow: 0 0 20px rgba(220,60,40,.6); }
+.ghost #knob { background: radial-gradient(circle at 35% 30%, #d9e4ff, #5a6aa6); box-shadow: 0 0 20px rgba(160,180,255,.6); }
+#count { position: absolute; top: 8px; left: 0; right: 0; text-align: center; font: 900 64px var(--display); color: #ff3b2f; text-shadow: 0 0 20px rgba(255,40,30,.7); pointer-events: none; }
+.banner { font: 900 46px var(--display); line-height: 1; }
+.banner.died { color: #d6111b; text-shadow: 0 0 30px rgba(214,17,27,.6); }
+.banner.ok { color: #f2d48a; }
+.flash { position: fixed; inset: 0; background: #a00; opacity: 0; pointer-events: none; transition: opacity .6s; }
+.rep { width: 100%; text-align: left; background: var(--crypt); border: 1px solid var(--line); border-radius: 12px; padding: 12px; font-size: 16px; }
+.rep h3 { margin: 0 0 6px; font: 700 20px var(--display); }
+.rep .row { display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.conn { position: fixed; top: calc(env(safe-area-inset-top,0px) + 6px); right: 8px; width: 9px; height: 9px; border-radius: 50%; background: #c33; }
+.conn.ok { background: #3c6; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="conn" id="conn"></div>
+<div class="flash" id="flash"></div>
+
+<!-- join -->
+<section class="scr" id="sJoin">
+  <h1>Eye of the Beholder<small>Answer or die</small></h1>
+  <div><label for="code">Lair code</label><input id="code" maxlength="4" autocomplete="off" inputmode="text"></div>
+  <div><label for="name">Your name</label><input id="name" maxlength="12" autocomplete="off" placeholder="Hero"></div>
+  <label>Choose your hero</label>
+  <div class="chars" id="chars"></div>
+  <div class="err" id="err"></div>
+  <button class="btn" id="go">Enter the lair</button>
+</section>
+
+<!-- lobby -->
+<section class="scr" id="sLobby" hidden>
+  <div class="me" id="meL"></div>
+  <div class="grow center">
+    <div class="banner ok" style="font-size:34px">You are in.</div>
+    <div style="color:var(--bone-dim)">Look at the big screen. The game starts soon.</div>
+  </div>
+  <label>Change hero</label>
+  <div class="chars" id="chars2"></div>
+</section>
+
+<!-- game -->
+<section class="scr" id="sGame" hidden>
+  <div class="me" id="meG"></div>
+  <div class="q" id="qBox" hidden></div>
+  <div id="msg" class="center" style="min-height:0"></div>
+  <div id="pad"><div id="count" hidden></div><div id="base" hidden></div><div id="knob" hidden></div><div class="hint">Touch and drag to move</div></div>
+</section>
+
+<!-- over -->
+<section class="scr" id="sOver" hidden>
+  <div class="grow center" id="overBox" style="overflow:auto;justify-content:flex-start;padding-top:10px"></div>
+</section>
+
+<script type="module">
+import { TINTS, TINT_NAMES, CHARS, CHAR_NAMES } from '/shared/tints.js';
+const $ = id => document.getElementById(id);
+const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch { } } };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const vib = p => { try { navigator.vibrate && navigator.vibrate(p); } catch { } };
+let wakeLock; async function keepAwake() { try { wakeLock = await navigator.wakeLock.request('screen'); } catch { } }
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') keepAwake(); });
+
+const qs = new URLSearchParams(location.search);
+$('code').value = (qs.get('code') || store.get('eotb_code') || '').toUpperCase();
+$('name').value = store.get('eotb_name') || '';
+let me = { char: store.get('eotb_char') || CHARS[Math.random() * CHARS.length | 0], tint: 0, alive: true, points: 0, round: 0 };
+
+function charGrid(el, onPick) {
+  el.innerHTML = CHARS.map(c => `<div class="ch" data-c="${c}"><img src="/assets/portraits/${c}.png" alt="">${CHAR_NAMES[c]}</div>`).join('');
+  el.onclick = e => { const d = e.target.closest('.ch'); if (d) onPick(d.dataset.c); };
+}
+function markChars() { document.querySelectorAll('.ch').forEach(d => d.classList.toggle('on', d.dataset.c === me.char)); }
+charGrid($('chars'), c => { me.char = c; store.set('eotb_char', c); markChars(); });
+charGrid($('chars2'), c => { me.char = c; store.set('eotb_char', c); markChars(); sendMsg({ t: 'setChar', char: c }); });
+markChars();
+
+function meCard() {
+  const chip = me.tint ? `<span class="chip" style="background:${TINTS[me.tint]}" title="${TINT_NAMES[me.tint]}"></span>` : '';
+  const st = me.state === 'lobby' ? '' : `<div class="status">${me.round ? 'Round ' + me.round : ''}<b class="${me.alive ? '' : 'dead'}">${me.alive ? me.points + ' pts' : 'Ghost'}</b></div>`;
+  const html = `<img src="/assets/portraits/${me.char}.png" alt=""><div><div class="nm">${esc(me.name || '')}${chip}</div><div style="font-size:13px;color:var(--bone-dim)">${CHAR_NAMES[me.char]}${me.tint ? ' · ' + TINT_NAMES[me.tint] : ''}</div></div>${st}`;
+  $('meL').innerHTML = html; $('meG').innerHTML = html;
+  $('sGame').classList.toggle('ghost', !me.alive);
+}
+function show(id) { for (const s of ['sJoin', 'sLobby', 'sGame', 'sOver']) $(s).hidden = s !== id; }
+
+// ---------- connection ----------
+let ws, backoff = 600, joined = false;
+function connect() {
+  const proto = location.protocol === 'https:' ? 'wss' : 'ws';
+  ws = new WebSocket(`${proto}://${location.host}/ws`);
+  ws.onopen = () => { $('conn').classList.add('ok'); backoff = 600; if (joined) join(true); };
+  ws.onclose = () => { $('conn').classList.remove('ok'); setTimeout(connect, backoff); backoff = Math.min(backoff * 1.6, 5000); };
+  ws.onmessage = e => { let m; try { m = JSON.parse(e.data); } catch { return; } onMsg(m); };
+}
+function sendMsg(m) { if (ws && ws.readyState === 1) ws.send(JSON.stringify(m)); }
+setInterval(() => sendMsg({ t: 'ping' }), 15000);
+function join(re) {
+  const code = $('code').value.trim().toUpperCase(), name = $('name').value.trim();
+  if (!re && (code.length !== 4 || !name)) { $('err').textContent = 'Write the 4-letter code and your name.'; return; }
+  store.set('eotb_code', code); store.set('eotb_name', name);
+  const pid = store.get('eotb_pid_' + code);
+  sendMsg({ t: 'join', code, name, char: me.char, pid });
+  joined = true;
+}
+$('go').onclick = () => { join(false); keepAwake(); };
+connect();
+// automatic re-join if this phone was already in this room
+if ($('code').value && store.get('eotb_pid_' + $('code').value)) { joined = true; }
+
+function onMsg(m) {
+  if (m.t === 'error') { $('err').textContent = m.msg; joined = false; show('sJoin'); return; }
+  if (m.t === 'joined') {
+    store.set('eotb_pid_' + $('code').value.trim().toUpperCase(), m.pid);
+    Object.assign(me, { name: m.name, char: m.char, tint: m.tint, alive: m.alive, points: m.points, state: m.state });
+    markChars(); meCard();
+    if (m.state === 'lobby') show('sLobby'); else if (m.state !== 'over') { show('sGame'); setMsg(me.alive ? '' : '<div class="banner" style="font-size:28px;color:#c9c4ff">You arrived late.<br>Watch as a ghost.</div>'); }
+    return;
+  }
+  if (m.t === 'char') { me.char = m.char; me.tint = m.tint; markChars(); meCard(); return; }
+  if (m.t === 'kicked') { store.set('eotb_pid_' + $('code').value.trim().toUpperCase(), ''); joined = false; show('sJoin'); $('err').textContent = 'You were removed from the game.'; return; }
+  if (m.t === 'state') {
+    me.state = m.state;
+    if (m.state === 'lobby') { me.alive = true; me.points = 0; me.round = 0; meCard(); show('sLobby'); }
+    if (m.state === 'intro') { me.alive = true; me.points = 0; me.round = 0; meCard(); show('sGame'); $('qBox').hidden = true; setMsg('<div style="color:var(--bone-dim)">Something moves in the dark…</div>'); vib(60); }
+    return;
+  }
+  if (m.t === 'ask') {
+    me.state = 'ask'; me.round = m.round; meCard(); show('sGame'); setMsg('');
+    $('qBox').hidden = false;
+    $('qBox').innerHTML = `<div class="lv">Round ${m.round} · ${m.level}</div>${esc(m.prompt)}<div class="opts">${m.circles.map((c, i) => `<div class="opt" data-i="${i}"><i style="background:${c.color};color:${c.color}"><span style="color:#140a0a">${c.letter}</span></i>${esc(c.text)}</div>`).join('')}</div>`;
+    vib(40);
+    return;
+  }
+  if (m.t === 'countdown') {
+    let n = m.secs; const el = $('count'); el.hidden = false; el.textContent = n;
+    clearInterval(window._cd); window._cd = setInterval(() => { n--; if (n <= 0) { clearInterval(window._cd); el.textContent = me.alive ? 'STOP' : ''; vib(120); } else { el.textContent = n; vib(25); } }, 1000);
+    setMsg(me.alive ? '<div class="banner" style="font-size:26px;color:#ff6b5e">Stand on the right circle!</div>' : '');
+    return;
+  }
+  if (m.t === 'verdict') {
+    clearInterval(window._cd); $('count').hidden = true;
+    document.querySelectorAll('.opt').forEach(o => o.classList.add(+o.dataset.i === m.correct ? 'right' : 'wrong'));
+    me.points = m.points;
+    if (m.you === 'dead') {
+      me.alive = false; vib([200, 80, 400]);
+      $('flash').style.transition = 'none'; $('flash').style.opacity = .85; requestAnimationFrame(() => { $('flash').style.transition = 'opacity 1.4s'; $('flash').style.opacity = 0; });
+      setMsg(`<div class="banner died">YOU DIED</div><div style="color:var(--bone-dim)">The answer was <b style="color:var(--bone)">${esc(m.correctText)}</b>.<br>Keep moving as a ghost.</div>`);
+    } else if (m.you === 'alive') {
+      setMsg(`<div class="banner ok">You survived</div><div style="color:var(--bone-dim)">${me.points} points</div>`); vib(50);
+    } else setMsg(`<div style="color:var(--bone-dim)">The answer was <b style="color:var(--bone)">${esc(m.correctText)}</b>.</div>`);
+    meCard();
+    return;
+  }
+  if (m.t === 'over') { showReport(m.report, m.players); return; }
+}
+function setMsg(h) { $('msg').innerHTML = h; }
+
+function showReport(r, n) {
+  show('sOver');
+  const parts = (r.parts || []).filter(p => p.n).sort((a, b) => b.ok / b.n - a.ok / a.n);
+  const best = parts[0], worst = parts.length > 1 ? parts[parts.length - 1] : null;
+  $('overBox').innerHTML = `
+    <div class="banner died" style="font-size:40px">YOU DIED</div>
+    <div style="color:var(--bone-dim)">Rank ${r.rank} of ${n}</div>
+    <div class="rep"><h3>${esc(r.name)}</h3>
+      <div class="row"><span>Points</span><b>${r.points}</b></div>
+      <div class="row"><span>Rounds survived</span><b>${Math.max(0, (r.round || 1) - 1)}</b></div>
+      <div class="row"><span>Correct answers</span><b>${r.correct} / ${r.answered}</b></div>
+    </div>
+    ${parts.length ? `<div class="rep"><h3>Your English</h3>
+      ${best && best.ok ? `<div style="margin-bottom:6px">💪 Strong: <b>${esc(best.name)}</b></div>` : ''}
+      ${worst && worst.ok < worst.n ? `<div>📖 Practise: <b>${esc(worst.name)}</b></div>` : ''}
+      ${parts.map(p => `<div class="row"><span>${esc(p.name)} <small style="color:var(--bone-dim)">${p.level}</small></span><b>${p.ok}/${p.n}</b></div>`).join('')}
+    </div>` : ''}
+    <div style="color:var(--bone-dim);font-size:14px">Wait for the next game on the big screen.</div>`;
+}
+
+// ---------- joystick ----------
+const pad = $('pad'), base = $('base'), knob = $('knob');
+let touchId = null, origin = null, vec = { x: 0, y: 0 }, lastSent = 0, sentZero = true;
+const R = 70;
+function setVec(x, y) {
+  vec = { x, y };
+  const now = performance.now();
+  if (now - lastSent > 50 || (!x && !y)) { sendMsg({ t: 'move', x: +x.toFixed(2), y: +y.toFixed(2) }); lastSent = now; sentZero = !x && !y; }
+}
+setInterval(() => { if (vec.x || vec.y) sendMsg({ t: 'move', x: +vec.x.toFixed(2), y: +vec.y.toFixed(2) }); }, 250);
+function start(x, y, id) {
+  touchId = id; const r = pad.getBoundingClientRect(); origin = { x: x - r.left, y: y - r.top };
+  base.hidden = knob.hidden = false; base.style.left = knob.style.left = origin.x + 'px'; base.style.top = knob.style.top = origin.y + 'px';
+}
+function moveTo(x, y) {
+  if (!origin) return; const r = pad.getBoundingClientRect();
+  let dx = x - r.left - origin.x, dy = y - r.top - origin.y; const d = Math.hypot(dx, dy);
+  if (d > R) { dx *= R / d; dy *= R / d; }
+  knob.style.left = origin.x + dx + 'px'; knob.style.top = origin.y + dy + 'px';
+  setVec(dx / R, dy / R); // screen down = toward the camera (+z)
+}
+function end() { touchId = null; origin = null; base.hidden = knob.hidden = true; setVec(0, 0); }
+pad.addEventListener('touchstart', e => { e.preventDefault(); const t = e.changedTouches[0]; start(t.clientX, t.clientY, t.identifier); }, { passive: false });
+pad.addEventListener('touchmove', e => { e.preventDefault(); for (const t of e.changedTouches) if (t.identifier === touchId) moveTo(t.clientX, t.clientY); }, { passive: false });
+pad.addEventListener('touchend', e => { for (const t of e.changedTouches) if (t.identifier === touchId) end(); });
+pad.addEventListener('touchcancel', end);
+pad.addEventListener('mousedown', e => { start(e.clientX, e.clientY, 'm'); const mm = ev => moveTo(ev.clientX, ev.clientY), mu = () => { end(); removeEventListener('mousemove', mm); removeEventListener('mouseup', mu); }; addEventListener('mousemove', mm); addEventListener('mouseup', mu); });
+// keyboard (for testing on a laptop)
+const keys = {};
+addEventListener('keydown', e => { if (document.activeElement.tagName === 'INPUT') return; keys[e.key.toLowerCase()] = 1; kb(); });
+addEventListener('keyup', e => { keys[e.key.toLowerCase()] = 0; kb(); });
+function kb() { const x = (keys.d || keys.arrowright ? 1 : 0) - (keys.a || keys.arrowleft ? 1 : 0), y = (keys.s || keys.arrowdown ? 1 : 0) - (keys.w || keys.arrowup ? 1 : 0); const l = Math.hypot(x, y) || 1; setVec(x / l, y / l); }
+</script>
+</body>
+</html>
