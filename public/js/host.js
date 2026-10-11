@@ -114,7 +114,7 @@ function showLobby() {
   clearLabels(); S.clearCircles(); S.clearBlood(); FX.clearFx();
   S.torchesLit(true); S.ambient.intensity = .22; S.moon.intensity = .15;
   hideBoss(); boss.setEmotion('neutral');
-  S.cam.pos.set(3.4, 3.6, 10.5); S.cam.look.set(3.4, 1.3, 1.6); lobbyLight(true);
+  S.cam.pos.set(3.6, 3.6, 10.8); S.cam.look.set(3.6, 1.3, 1.6); lobbyLight(true);
   A.playMusic('lobby', .3);
   fetch('/api/top').then(r => r.json()).then(t => renderTop(t, $('top'))).catch(() => { });
   lineup(); updateLobbyCount();
@@ -128,7 +128,7 @@ function addHero(p, fresh) {
 function lineup() {
   if (state !== 'lobby') return;
   const list = [...heroes.values()], n = list.length;
-  list.forEach((h, i) => { const row = i < 5 ? 0 : 1, k = row ? i - 5 : i, cnt = row ? n - 5 : Math.min(5, n); const x = 3.6 + (k - (cnt - 1) / 2) * 1.55; h.place(x, 2.4 - row * 1.7, 0); h.target.set(x, 0, 2.4 - row * 1.7); });
+  list.forEach((h, i) => { const row = i < 5 ? 0 : 1, k = row ? i - 5 : i, cnt = row ? n - 5 : Math.min(5, n); const x = 4.6 + (k - (cnt - 1) / 2) * 1.45; h.place(x, 2.4 - row * 1.7, 0); h.target.set(x, 0, 2.4 - row * 1.7); });
 }
 function updateLobbyCount() { $('pcount').textContent = `${heroes.size} / 10 heroes`; $('start').disabled = !heroes.size; }
 function renderTop(list, el) {
