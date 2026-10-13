@@ -107,7 +107,6 @@ setLevel('A1');
 $('start').onclick = () => { if (heroes.size) send({ t: 'start', level }); };
 $('again').onclick = () => send({ t: 'start', level, short: true });
 $('toLobby').onclick = () => send({ t: 'lobby' });
-$('saveShot').onclick = () => saveSession();
 
 function showLobby() {
   state = 'lobby'; ++flowId;
@@ -362,60 +361,9 @@ function renderFinal(m) {
     return `<tr><td>${r.rank}</td><td><img src="/assets/portraits/${r.char}.png" alt="" style="border-color:${ring}"> <b>${esc(r.name)}</b></td><td class="pts">${r.points}</td><td>${Math.max(0, r.round - 1)} <small>rounds</small></td><td>${r.correct}/${r.answered}</td><td class="strong">${esc(best)}</td><td class="weak">${esc(worst)}</td></tr>`;
   }).join('');
   const d = m.date ? new Date(m.date) : new Date();
-  lastOver = { code: $('code').textContent.trim(), d };
-  $('fmeta').textContent = `Lair ${lastOver.code} · started at ${m.level} · ${m.rounds} round${m.rounds === 1 ? '' : 's'} · ${d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })} ${d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}`;
-  // round by round: the question, its right answer, how many got it and who fell
-  $('review').innerHTML = (m.log || []).map(r => {
-    const n = r.ok.length + r.ko.length, q = r.prompt.length > 130 ? r.prompt.slice(0, 127) + '…' : r.prompt;
-    return `<div class="rv"><span class="n">R${r.round}</span><div class="q">${esc(q)} <small>· ${esc(r.level)} · ${esc(r.part || '')}</small><em>✓ ${esc(r.answer)}</em></div>`
-      + `<span class="res ${r.ok.length === n ? 'good' : r.ok.length ? '' : 'bad'}">${r.ok.length}/${n} right</span>`
-      + (r.ko.length ? `<div class="who">Fell: <b>${r.ko.map(esc).join(', ')}</b></div>` : '') + `</div>`;
-  }).join('') || '<div class="lbl">No rounds were played.</div>';
-  requestAnimationFrame(fitReview);
+  $('fmeta').textContent = `Lair ${$('code').textContent.trim()} · started at ${m.level} · ${m.rounds} round${m.rounds === 1 ? '' : 's'} · ${d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })} ${d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}`;
   $('rank').innerHTML = `<tr><th>#</th><th>Hero</th><th>Points</th><th>Survived</th><th>Right</th><th>Strong at</th><th>Practise</th></tr>${rows}`;
   renderTop([], $('top2')); fetch('/api/top').then(r => r.json()).then(t => renderTop(t, $('top2'))).catch(() => { });
-}
-
-// long games: shrink the round-by-round text until it fits its panel (it still scrolls past the minimum)
-function fitReview() {
-  const r = $('review'); let k = 1; r.style.setProperty('--rs', k);
-  while (r.scrollHeight > r.clientHeight + 2 && k > .6) { k -= .05; r.style.setProperty('--rs', k.toFixed(2)); }
-}
-// ---------- "Save this session": a PNG of the final board over the lair ----------
-let shotWait = null, lastOver = null;
-function loadScript(src) { return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); }); }
-async function saveSession() {
-  const btn = $('saveShot'); if (btn.disabled) return;
-  const label = btn.textContent; btn.disabled = true; btn.textContent = 'Saving…';
-  try {
-    if (!window.htmlToImage) await loadScript('/vendor/html-to-image/html-to-image.js');
-    const W = innerWidth, H = innerHeight, pr = Math.min(2, Math.max(1, 1920 / W));
-    const bg = await new Promise(r => { shotWait = r; });
-    const board = $('final');
-    board.classList.add('capture'); fitReview(); // the picture gets every round: the review takes the whole column
-    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
-    const box = board.getBoundingClientRect();
-    const png = await window.htmlToImage.toPng(board, {
-      pixelRatio: pr, width: box.width, height: box.height,
-      style: { position: 'static', inset: 'auto', margin: '0', opacity: '1', transition: 'none' },
-      filter: n => !(n.classList && n.classList.contains('finalbtns')),
-    });
-    const load = src => new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; });
-    const [a, b] = await Promise.all([load(bg), load(png)]);
-    const c = document.createElement('canvas'); c.width = Math.round(W * pr); c.height = Math.round(H * pr);
-    const g = c.getContext('2d');
-    g.drawImage(a, 0, 0, c.width, c.height);
-    g.fillStyle = 'rgba(5,3,4,.35)'; g.fillRect(0, 0, c.width, c.height);
-    g.drawImage(b, box.left * pr, box.top * pr, box.width * pr, box.height * pr);
-    const d = (lastOver && lastOver.d) || new Date(), pad = x => String(x).padStart(2, '0');
-    const name = `eye-of-the-beholder_${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}_${pad(d.getHours())}${pad(d.getMinutes())}${lastOver && lastOver.code ? '_' + lastOver.code : ''}.png`;
-    const blob = await new Promise(r => c.toBlob(r, 'image/png'));
-    const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = name; document.body.appendChild(link); link.click();
-    setTimeout(() => { URL.revokeObjectURL(link.href); link.remove(); }, 4000);
-    btn.textContent = 'Saved ✓';
-  } catch (e) { console.error('save session', e); btn.textContent = 'Could not save'; }
-  $('final').classList.remove('capture'); fitReview();
-  setTimeout(() => { btn.textContent = label; btn.disabled = false; }, 2500);
 }
 
 // ---------- main loop ----------
@@ -443,9 +391,8 @@ function frame() {
       else if (ms < 20 && pr < Math.min(devicePixelRatio, 1.25)) S.renderer.setPixelRatio(pr = Math.min(Math.min(devicePixelRatio, 1.25), pr + .1));
       perf.t = 0; perf.n = 0; } }
   S.renderer.render(S.scene, S.camera);
-  if (shotWait) { const r = shotWait; shotWait = null; r(S.renderer.domElement.toDataURL('image/jpeg', .9)); } // grabbed right after drawing, so the frame is not blank
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
 // for automated tests
-window.__eotb = { heroes, get boss() { return boss; }, S, onMsg, send, renderFinal, saveSession, renderFinal, saveSession, dbg: () => ({ flowId, simNow, waits: simWaits.length, state }) };
+window.__eotb = { heroes, get boss() { return boss; }, S, onMsg, send, renderFinal, renderFinal, saveSession, dbg: () => ({ flowId, simNow, waits: simWaits.length, state }) };

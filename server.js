@@ -12,7 +12,6 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: '1h' }));
 app.use('/vendor/three', express.static(path.join(__dirname, 'node_modules/three'), { maxAge: '7d' }));
-app.use('/vendor/html-to-image', express.static(path.join(__dirname, 'node_modules/html-to-image/dist'), { maxAge: '7d' }));
 app.get('/qr.svg', async (req, res) => {
   try {
     const svg = await QRCode.toString(String(req.query.text || ''), { type: 'svg', margin: 1, color: { dark: '#0d0708', light: '#e9dcc4' } });
@@ -90,7 +89,7 @@ function pickTint(room, p) {
 }
 
 function resetPlayer(p, i, n) {
-  p.alive = true; p.points = 0; p.diedRound = null; p.correct = 0; p.answered = 0; p.parts = {};
+  p.alive = true; p.points = 0; p.diedRound = null; p.correct = 0; p.answered = 0; p.parts = {}; p.hist = [];
   p.in = { x: 0, y: 0 };
   // spawn in a loose line at the front of the arena
   const span = Math.min(10, n * 1.3);
@@ -101,7 +100,7 @@ function startGame(room, { short = false } = {}) {
   clearTimers(room);
   const list = [...room.players.values()];
   list.forEach((p, i) => resetPlayer(p, i, list.length));
-  room.round = 0; room.startN = list.length; room.q = null; room.log = []; room.used = new Set(); room.frozen = false;
+  room.round = 0; room.startN = list.length; room.q = null; room.used = new Set(); room.frozen = false;
   room.state = 'intro';
   const payload = { t: 'intro', short, players: list.map(publicPlayer), level: LEVELS[room.level] };
   toHost(room, payload);
@@ -179,14 +178,14 @@ function judge(room) {
     p.answered++;
     const part = p.parts[q.partName] ||= { ok: 0, n: 0, level: q.level };
     part.n++;
+    // what this student answered, for the round-by-round review on their phone
+    (p.hist ||= []).push({ round: room.round, level: LEVELS[li], part: q.partName, prompt: q.q, answer: C.text, chose: inCircle >= 0 ? circles[inCircle].text : null, ok: inCircle === correct });
     if (inCircle === correct) {
       p.correct++; part.ok++; p.points += T.POINTS[li]; surv.push(p.id);
     } else {
       p.alive = false; p.diedRound = room.round; dead.push({ id: p.id, chose: inCircle });
     }
   }
-  (room.log ||= []).push({ round: room.round, level: LEVELS[li], part: q.partName, prompt: q.q, answer: C.text,
-    ok: surv.map(id => room.players.get(id).name), ko: dead.map(d => room.players.get(d.id).name) });
   toHost(room, { t: 'verdict', correct, correctText: C.text, dead, surv, players: [...room.players.values()].map(publicPlayer), pos: positions(room) });
   for (const p of room.players.values()) {
     const died = dead.some(d => d.id === p.id), lived = surv.includes(p.id);
@@ -204,7 +203,7 @@ function afterExec(room) {
 
 function report(room, p) {
   const parts = Object.entries(p.parts).map(([name, v]) => ({ name, ok: v.ok, n: v.n, level: v.level }));
-  return { id: p.id, name: p.name, char: p.char, tint: p.tint, points: p.points, round: p.diedRound || room.round, correct: p.correct, answered: p.answered, parts };
+  return { id: p.id, name: p.name, char: p.char, tint: p.tint, points: p.points, round: p.diedRound || room.round, correct: p.correct, answered: p.answered, parts, hist: p.hist || [] };
 }
 
 function gameOver(room) {
@@ -212,8 +211,9 @@ function gameOver(room) {
   room.state = 'over';
   const ranking = [...room.players.values()].map(p => report(room, p)).sort((a, b) => b.points - a.points || b.round - a.round);
   ranking.forEach((r, i) => r.rank = i + 1);
-  toHost(room, { t: 'over', ranking, level: LEVELS[room.level], rounds: room.round, log: room.log || [], date: new Date().toISOString() });
-  for (const r of ranking) { const p = room.players.get(r.id); send(p && p.ws, { t: 'over', report: r, players: ranking.length }); }
+  toHost(room, { t: 'over', ranking: ranking.map(({ hist, ...r }) => r), level: LEVELS[room.level], rounds: room.round, date: new Date().toISOString() });
+  const when = new Date().toISOString();
+  for (const r of ranking) { const p = room.players.get(r.id); if (!p) continue; p.lastOver = { t: 'over', report: r, players: ranking.length, code: room.code, level: LEVELS[room.level], rounds: room.round, date: when }; send(p.ws, p.lastOver); }
   // everyone who answered at least once goes to the global ranking (the server keeps the real score)
   Promise.all(ranking.filter(r => r.points > 0).map(r => saveScore({ name: r.name, char: r.char, points: r.points, round: r.round, level: LEVELS[room.level] }).catch(e => console.error('score', e.message))))
     .then(() => topScores(10)).then(top => toHost(room, { t: 'top', top })).catch(() => { });
@@ -310,6 +310,7 @@ function handle(ws, m) {
     } else if (p.ws && p.ws !== ws) { try { p.ws.close(); } catch { } }
     p.ws = ws; ws.room = room; ws.role = 'phone'; ws.player = p;
     send(ws, { t: 'joined', pid: p.id, name: p.name, char: p.char, tint: p.tint, state: room.state, alive: p.alive, points: p.points });
+    if (room.state === 'over' && p.lastOver) send(ws, p.lastOver); // a phone that reconnects still gets its report
     toHost(room, { t: 'player_join', p: publicPlayer(p) });
     if (room.state === 'over') { const r = report(room, p); send(ws, { t: 'over', report: r, players: room.players.size }); }
     return;

@@ -8,8 +8,8 @@ El proyector muestra una cripta en ruinas iluminada por dos antorchas. Desde la 
 - 📈 **Dificultad:** el nivel elegido es el punto de partida. Cada vez que muere gente las preguntas suben de nivel, hasta C1. También suben cada 6 rondas, para que una partida con pocos jugadores no se estanque. A partir de B1 se mezclan preguntas del nivel anterior para que la subida sea más suave.
 - ⭕ A1 y A2 usan 3 círculos; de B1 en adelante, 4.
 - 🏆 **Puntos:** cada respuesta correcta vale según su nivel (A1 = 10, A2 = 20, B1 = 30, B2 = 40, C1 = 50). La partida termina cuando no queda nadie con vida. Si queda uno solo, sigue hasta que muera.
-- 📋 Al final, el tablero muestra por estudiante: puntos, rondas que sobrevivió, aciertos, en qué parte del examen fue fuerte y qué debe practicar. Al lado aparece la partida ronda por ronda: la pregunta, la respuesta correcta, cuántos acertaron y quién cayó. Cada celular muestra su propio informe.
-- 📸 **Save this session** descarga una imagen PNG del tablero final (con todas las rondas), con la fecha y el código de la sala en el nombre del archivo.
+- 📋 Al final, el tablero muestra por estudiante: puntos, rondas que sobrevivió, aciertos, en qué parte del examen fue fuerte y qué debe practicar.
+- 📱 Cada celular muestra el informe completo del estudiante: sus números, sus fortalezas y, ronda por ronda, la pregunta, la respuesta correcta y lo que eligió. Con **Save this session** el celular dibuja ese informe como una imagen para guardarla en la galería (mantener presionada la imagen → *Guardar imagen* / *Añadir a Fotos*, o con los botones de compartir o descargar).
 - 🖥️ La interfaz se escala igual en cualquier resolución o relación de aspecto (16:9, 16:10, 4:3).
 
 ## Cómo se juega en clase

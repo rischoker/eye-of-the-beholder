@@ -63,6 +63,23 @@ input:focus { border-color: var(--ember); }
 .rep { width: 100%; text-align: left; background: var(--crypt); border: 1px solid var(--line); border-radius: 12px; padding: 12px; font-size: 16px; }
 .rep h3 { margin: 0 0 6px; font: 700 20px var(--display); }
 .rep .row { display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.rv { padding: 9px 0; border-bottom: 1px solid var(--line); line-height: 1.3; }
+.rv:last-child { border-bottom: 0; }
+.rv .top { display: flex; justify-content: space-between; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--bone-dim); margin-bottom: 3px; }
+.rv .top b { letter-spacing: .04em; font-size: 14px; }
+.rv .ok { color: #9fe0a6; } .rv .ko { color: #ff8f7a; }
+.rv .ans { margin-top: 4px; font-weight: 700; }
+#overBox { touch-action: pan-y; -webkit-overflow-scrolling: touch; }
+#overBox .btn { flex: none; }
+#shot { position: fixed; inset: 0; z-index: 30; background: #050304; display: flex; flex-direction: column; align-items: center; gap: 12px;
+  padding: calc(env(safe-area-inset-top,0px) + 14px) 16px calc(env(safe-area-inset-bottom,0px) + 16px); }
+#shot .wrap { flex: 1; min-height: 0; width: 100%; overflow: auto; touch-action: pan-y; display: flex; justify-content: center; }
+#shot img { width: 100%; max-width: 520px; height: auto; align-self: flex-start; border-radius: 10px; border: 1px solid var(--line);
+  -webkit-touch-callout: default; -webkit-user-select: auto; user-select: auto; touch-action: pan-y; }
+#shot p { margin: 0; text-align: center; color: var(--bone-dim); font-size: 15px; }
+#shot .row2 { display: flex; gap: 8px; width: 100%; max-width: 520px; }
+#shot .row2 .btn { padding: 12px 8px; font-size: 18px; }
+.btn.ghosty { background: var(--crypt); border-color: var(--line); }
 .conn { position: fixed; top: calc(env(safe-area-inset-top,0px) + 6px); right: 8px; width: 9px; height: 9px; border-radius: 50%; background: #c33; }
 .conn.ok { background: #3c6; }
 [hidden] { display: none !important; }
@@ -106,6 +123,12 @@ input:focus { border-color: var(--ember); }
 <section class="scr" id="sOver" hidden>
   <div class="grow center" id="overBox" style="overflow:auto;justify-content:flex-start;padding-top:10px"></div>
 </section>
+<div id="shot" hidden>
+  <div class="wrap"><img id="shotImg" alt="Your session report"></div>
+  <p>Press and hold the picture, then choose <b>Save image</b> / <b>Add to Photos</b>.</p>
+  <div class="row2"><button class="btn" id="shotShare">Share / Save</button><a class="btn ghosty" id="shotDl" style="text-align:center;text-decoration:none">Download</a></div>
+  <button class="btn ghosty" id="shotClose" style="max-width:520px">Close</button>
+</div>
 
 <script type="module">
 import { TINTS, TINT_NAMES, CHARS, CHAR_NAMES } from '/shared/tints.js';
@@ -207,14 +230,23 @@ function onMsg(m) {
     meCard();
     return;
   }
-  if (m.t === 'over') { showReport(m.report, m.players); return; }
+  if (m.t === 'over') { showReport(m); return; }
 }
 function setMsg(h) { $('msg').innerHTML = h; }
 
-function showReport(r, n) {
-  show('sOver');
+// ---------- final report: everything stays on the student's phone ----------
+let lastReport = null;
+function strongWeak(r) {
   const parts = (r.parts || []).filter(p => p.n).sort((a, b) => b.ok / b.n - a.ok / a.n);
-  const best = parts[0], worst = parts.length > 1 ? parts[parts.length - 1] : null;
+  const best = parts[0] && parts[0].ok ? parts[0] : null;
+  const worst = parts.length > 1 && parts[parts.length - 1].ok < parts[parts.length - 1].n ? parts[parts.length - 1] : (parts.length === 1 && parts[0].ok < parts[0].n ? parts[0] : null);
+  return { parts, best, worst };
+}
+function showReport(m) {
+  lastReport = m; const r = m.report, n = m.players;
+  show('sOver');
+  const { parts, best, worst } = strongWeak(r);
+  const hist = r.hist || [];
   $('overBox').innerHTML = `
     <div class="banner died" style="font-size:40px">YOU DIED</div>
     <div style="color:var(--bone-dim)">Rank ${r.rank} of ${n}</div>
@@ -224,12 +256,133 @@ function showReport(r, n) {
       <div class="row"><span>Correct answers</span><b>${r.correct} / ${r.answered}</b></div>
     </div>
     ${parts.length ? `<div class="rep"><h3>Your English</h3>
-      ${best && best.ok ? `<div style="margin-bottom:6px">💪 Strong: <b>${esc(best.name)}</b></div>` : ''}
-      ${worst && worst.ok < worst.n ? `<div>📖 Practise: <b>${esc(worst.name)}</b></div>` : ''}
+      ${best ? `<div style="margin-bottom:6px">💪 Strong: <b>${esc(best.name)}</b></div>` : ''}
+      ${worst ? `<div style="margin-bottom:6px">📖 Practise: <b>${esc(worst.name)}</b></div>` : ''}
       ${parts.map(p => `<div class="row"><span>${esc(p.name)} <small style="color:var(--bone-dim)">${p.level}</small></span><b>${p.ok}/${p.n}</b></div>`).join('')}
     </div>` : ''}
-    <div style="color:var(--bone-dim);font-size:14px">Wait for the next game on the big screen.</div>`;
+    ${hist.length ? `<div class="rep"><h3>Round by round</h3>${hist.map(h => `<div class="rv">
+      <div class="top"><span>Round ${h.round} · ${esc(h.level)} · ${esc(h.part || '')}</span><b class="${h.ok ? 'ok' : 'ko'}">${h.ok ? '✓ Right' : '✗ Wrong'}</b></div>
+      <div>${esc(h.prompt)}</div>
+      <div class="ans ok">✓ ${esc(h.answer)}</div>
+      ${h.ok ? '' : `<div class="ko">${h.chose ? 'You chose: ' + esc(h.chose) : 'You were not in any circle.'}</div>`}
+    </div>`).join('')}</div>` : ''}
+    <button class="btn" id="saveShot">Save this session</button>
+    <div style="color:var(--bone-dim);font-size:14px;padding-bottom:6px">Wait for the next game on the big screen.</div>`;
+  $('saveShot').onclick = saveSession;
 }
+
+// "Save this session": the report drawn as one tall picture for the phone's gallery
+const C = { void: '#0b0708', crypt: '#171012', bone: '#e9dcc4', dim: '#a8998a', ember: '#ff7a2a', blood: '#d6111b', ok: '#9fe0a6', ko: '#ff8f7a', line: 'rgba(233,220,196,.16)' };
+const F = { display: '"Grenze Gotisch", Georgia, serif', body: '"Alegreya Sans", system-ui, sans-serif' };
+function wrap(g, text, maxW) {
+  const words = String(text).split(/\s+/), lines = []; let cur = '';
+  for (const w of words) { const t = cur ? cur + ' ' + w : w; if (g.measureText(t).width > maxW && cur) { lines.push(cur); cur = w; } else cur = t; }
+  if (cur) lines.push(cur); return lines;
+}
+function rrect(g, x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+function loadImg(src) { return new Promise(res => { const i = new Image(); i.onload = () => res(i); i.onerror = () => res(null); i.src = src; }); }
+// lays the report out top to bottom; with draw=false it only measures, so the canvas gets the exact height
+function paintReport(g, m, portrait, draw) {
+  const r = m.report, W = 1080, P = 64, IW = W - P * 2; let y = 70;
+  const { parts, best, worst } = strongWeak(r);
+  const d = m.date ? new Date(m.date) : new Date();
+  const text = (t, x, yy, font, color, align = 'left') => { if (!draw) return; g.font = font; g.fillStyle = color; g.textAlign = align; g.fillText(t, x, yy); };
+  const box = (x, yy, w, h, fill = C.crypt) => { if (!draw) return; rrect(g, x, yy, w, h, 22); g.fillStyle = fill; g.fill(); g.strokeStyle = C.line; g.lineWidth = 2; g.stroke(); };
+  // title
+  if (draw) { g.shadowColor = 'rgba(200,20,30,.7)'; g.shadowBlur = 40; }
+  text('Eye of the Beholder', W / 2, y + 70, `900 96px ${F.display}`, C.bone, 'center');
+  if (draw) g.shadowBlur = 0;
+  y += 120;
+  const when = `${d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })} · ${d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}`;
+  text(`LAIR ${m.code || ''}  ·  ${when.toUpperCase()}  ·  STARTED AT ${m.level || ''}`, W / 2, y, `600 26px ${F.body}`, C.dim, 'center');
+  y += 50;
+  // hero card
+  box(P, y, IW, 210);
+  if (draw && portrait) { g.save(); g.beginPath(); g.arc(P + 110, y + 105, 72, 0, Math.PI * 2); g.clip(); g.fillStyle = '#000'; g.fill(); g.drawImage(portrait, P + 38, y + 33, 144, 144); g.restore();
+    g.beginPath(); g.arc(P + 110, y + 105, 74, 0, Math.PI * 2); g.lineWidth = 6; g.strokeStyle = (me.tint && TINTS[me.tint]) || 'rgba(233,220,196,.35)'; g.stroke(); }
+  text(r.name, P + 215, y + 100, `900 68px ${F.display}`, C.bone);
+  text(`${CHAR_NAMES[r.char] || ''}`, P + 217, y + 145, `500 30px ${F.body}`, C.dim);
+  text(`Rank ${r.rank} of ${m.players}`, P + IW - 36, y + 92, `700 40px ${F.display}`, C.ember, 'right');
+  text(`${m.rounds || 0} rounds played`, P + IW - 36, y + 140, `500 26px ${F.body}`, C.dim, 'right');
+  y += 240;
+  // three stats
+  const stats = [['POINTS', String(r.points), C.ember], ['ROUNDS SURVIVED', String(Math.max(0, (r.round || 1) - 1)), C.bone], ['CORRECT', `${r.correct}/${r.answered}`, C.ok]];
+  const sw = (IW - 40) / 3;
+  stats.forEach(([lab, val, col], i) => { const x = P + i * (sw + 20); box(x, y, sw, 160); text(val, x + sw / 2, y + 92, `900 72px ${F.display}`, col, 'center'); text(lab, x + sw / 2, y + 134, `700 21px ${F.body}`, C.dim, 'center'); });
+  y += 200;
+  // your English
+  if (parts.length) {
+    const h = 150 + (best ? 48 : 0) + (worst ? 48 : 0) + parts.length * 58;
+    box(P, y, IW, h);
+    let yy = y + 70; text('Your English', P + 36, yy, `900 48px ${F.display}`, C.bone); yy += 20;
+    if (best) { yy += 48; text(`Strong at: ${best.name}`, P + 36, yy, `700 32px ${F.body}`, C.ok); }
+    if (worst) { yy += 48; text(`Practise: ${worst.name}`, P + 36, yy, `700 32px ${F.body}`, C.ko); }
+    yy += 22;
+    for (const p of parts) {
+      yy += 58; text(`${p.name}`, P + 36, yy, `500 30px ${F.body}`, C.bone);
+      text(`${p.ok}/${p.n}`, P + IW - 36, yy, `800 30px ${F.body}`, C.bone, 'right');
+      if (draw) { const bx = P + 470, bw = IW - 470 - 140; rrect(g, bx, yy - 20, bw, 14, 7); g.fillStyle = 'rgba(233,220,196,.10)'; g.fill(); if (p.ok) { rrect(g, bx, yy - 20, Math.max(14, bw * p.ok / p.n), 14, 7); g.fillStyle = p.ok === p.n ? C.ok : C.ember; g.fill(); } }
+    }
+    y += h + 30;
+  }
+  // round by round
+  const hist = r.hist || [];
+  if (hist.length) {
+    text('Round by round', P, y + 56, `900 52px ${F.display}`, C.bone); y += 90;
+    for (const h of hist) {
+      g.font = `500 32px ${F.body}`; const lines = wrap(g, h.prompt, IW - 72);
+      g.font = `700 30px ${F.body}`; const ans = wrap(g, '✓ ' + h.answer, IW - 72);
+      const chose = h.ok ? [] : wrap(g, h.chose ? 'You chose: ' + h.chose : 'You were not in any circle.', IW - 72);
+      const bh = 76 + lines.length * 42 + 10 + (ans.length + chose.length) * 40 + 24;
+      box(P, y, IW, bh, h.ok ? 'rgba(40,70,46,.35)' : 'rgba(90,20,22,.35)');
+      text(`ROUND ${h.round}  ·  ${h.level}  ·  ${String(h.part || '').toUpperCase()}`, P + 36, y + 52, `700 22px ${F.body}`, C.dim);
+      text(h.ok ? '✓ RIGHT' : '✗ WRONG', P + IW - 36, y + 52, `800 26px ${F.body}`, h.ok ? C.ok : C.ko, 'right');
+      let yy = y + 76;
+      for (const l of lines) { yy += 42; text(l, P + 36, yy, `500 32px ${F.body}`, C.bone); }
+      yy += 10;
+      for (const l of ans) { yy += 40; text(l, P + 36, yy, `700 30px ${F.body}`, C.ok); }
+      for (const l of chose) { yy += 40; text(l, P + 36, yy, `700 30px ${F.body}`, C.ko); }
+      y += bh + 18;
+    }
+  }
+  y += 30;
+  text('Answer or die.', W / 2, y + 30, `700 34px ${F.display}`, C.blood, 'center');
+  return y + 80;
+}
+async function makeReportPng(m) {
+  await Promise.all([`900 96px ${F.display}`, `700 40px ${F.display}`, `500 30px ${F.body}`, `700 30px ${F.body}`, `800 30px ${F.body}`, `600 26px ${F.body}`].map(f => document.fonts.load(f).catch(() => { })));
+  const portrait = await loadImg(`/assets/portraits/${m.report.char}.png`);
+  const c = document.createElement('canvas'), g = c.getContext('2d');
+  c.width = 1080; c.height = 100;
+  const H = Math.min(16000, Math.ceil(paintReport(g, m, portrait, false)));
+  c.height = H;
+  const bg = g.createRadialGradient(540, -100, 50, 540, 300, 1400); bg.addColorStop(0, '#3a1418'); bg.addColorStop(1, C.void);
+  g.fillStyle = bg; g.fillRect(0, 0, c.width, H);
+  g.textBaseline = 'alphabetic';
+  paintReport(g, m, portrait, true);
+  return new Promise(res => c.toBlob(res, 'image/png'));
+}
+let shotFile = null, shotUrl = null;
+async function saveSession() {
+  if (!lastReport) return;
+  const btn = $('saveShot'), label = btn.textContent; btn.disabled = true; btn.textContent = 'Drawing your report…';
+  try {
+    const blob = await makeReportPng(lastReport);
+    const d = lastReport.date ? new Date(lastReport.date) : new Date(), pad = x => String(x).padStart(2, '0');
+    const name = `beholder_${String(lastReport.report.name).normalize('NFD').replace(/[^A-Za-z0-9_-]+/g, '') || 'hero'}_${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}_${pad(d.getHours())}${pad(d.getMinutes())}.png`;
+    shotFile = new File([blob], name, { type: 'image/png' });
+    if (shotUrl) URL.revokeObjectURL(shotUrl);
+    shotUrl = URL.createObjectURL(blob);
+    $('shotImg').src = shotUrl; $('shotDl').href = shotUrl; $('shotDl').download = name;
+    $('shotShare').hidden = !(navigator.canShare && navigator.canShare({ files: [shotFile] }));
+    $('shot').hidden = false;
+  } catch (e) { console.error(e); btn.disabled = false; alertMsg('Could not make the picture. Take a screenshot instead.'); return; }
+  btn.disabled = false; btn.textContent = label;
+}
+function alertMsg(t) { const b = $('saveShot'); if (b) { b.textContent = t; setTimeout(() => b.textContent = 'Save this session', 3000); } }
+$('shotShare').onclick = async () => { try { await navigator.share({ files: [shotFile], title: 'Eye of the Beholder' }); } catch { } };
+$('shotClose').onclick = () => { $('shot').hidden = true; };
+window.__phone = { onMsg }; // test hook
 
 // ---------- joystick ----------
 const pad = $('pad'), base = $('base'), knob = $('knob');
