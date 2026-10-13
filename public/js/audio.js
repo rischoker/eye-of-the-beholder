@@ -3,7 +3,6 @@
 // anything missing is synthesized so the game always has sound.
 export const VOICE_LINES = {
   intro: 'So... more little adventurers have crawled into my lair. You will answer my questions... or you will DIE!',
-  answer_or_die: 'Answer... or DIE!',
   laugh_1: 'Mwahahahaha!',
   laugh_2: 'Delicious.',
   kill_1: 'Wrong. How sad.',
@@ -17,6 +16,8 @@ export const VOICE_LINES = {
   harder: 'The questions grow harder... and so does your fate.',
   last_one: 'Only one remains... Interesting. Let us see how long you last.',
   you_died: 'All of you... dead. Come back... if you dare.',
+  count_10: 'Ten.', count_9: 'Nine.', count_8: 'Eight.', count_7: 'Seven.', count_6: 'Six.', count_5: 'Five.',
+  count_4: 'Four.', count_3: 'Three.', count_2: 'Two.', count_1: 'One!', time_up: 'Time is up!',
 };
 
 let ctx, master, musicGain, sfxGain, voiceGain;

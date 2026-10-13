@@ -107,6 +107,7 @@ setLevel('A1');
 $('start').onclick = () => { if (heroes.size) send({ t: 'start', level }); };
 $('again').onclick = () => send({ t: 'start', level, short: true });
 $('toLobby').onclick = () => send({ t: 'lobby' });
+$('saveShot').onclick = () => saveSession();
 
 function showLobby() {
   state = 'lobby'; ++flowId;
@@ -221,10 +222,10 @@ async function emerge(secs, ok) {
     const k = Math.min(1, (nowMs() - t0) / (secs * 1000)); const e = 1 - Math.pow(1 - k, 3);
     bossRoot.position.lerpVectors(from, to, e);
     bossLight.intensity = 40 * e; bossRoot.userData.rim.intensity = 36 * e; bossRoot.userData.key.intensity = 260 * e;
-    eyeGlow.material.opacity = Math.min(1, k * 3) * (1 - e * .75);
+    eyeGlow.material.opacity = Math.min(1, k * 3) * (1 - e);
     if (k >= 1) break; await wait(16); ok();
   }
-  eyeGlow.material.opacity = .25;
+  eyeGlow.material.opacity = 0;
 }
 
 // ---------- a round ----------
@@ -245,25 +246,30 @@ async function ask(m) {
   setDialog('', null, `Round ${m.round} · ${m.level} · ${m.part}`); dialog(true);
   await growl(m.prompt, 16, true); ok();
   $('dopts').innerHTML = m.circles.map((c, i) => `<div class="opt" data-i="${i}"><b style="background:${c.color};color:${c.color}"><span style="color:#160b0b">${c.letter}</span></b>${esc(c.text)}</div>`).join('');
-  await wait(500); ok();
+  // quiet time to read the options before the count: slower readers get to finish, longer texts get more
+  const readMs = 2500 + Math.min(3000, (m.prompt.length + m.circles.reduce((a, c) => a + c.text.length, 0)) * 18);
+  await wait(readMs); ok();
   send({ t: 'askDone' });
 }
+const NUM_WORDS = ['', 'One!', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
 async function countdown(m) {
   const ok = alive(flowId);
   state = 'countdown';
   boss.setEmotion('angry', 4);
-  const b = $('banner'); b.classList.remove('stamp'); void b.offsetWidth; b.classList.add('stamp'); S.shake(.5); A.sfx('stamp');
-  bossSay('answer_or_die', 'Answer... or DIE!', { show: false });
+  S.shake(.3);
   const aliveHeroes = [...heroes.values()].filter(h => !h.dead);
   for (const h of aliveHeroes.sort(() => Math.random() - .5).slice(0, 2)) setTimeout(() => !h.dead && h.say(pick(LINES.count), 1800), 900 + Math.random() * 2000);
   for (let n = m.secs; n >= 1; n--) {
     const el = $('countdown'); el.textContent = n; el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick');
     const pu = $('pulse'); pu.style.setProperty('--p', (.3 + (m.secs - n) / m.secs * .55).toFixed(2)); pu.classList.remove('beat'); void pu.offsetWidth; pu.classList.add('beat');
     if (n <= 2) S.shake(.12);
-    A.sfx('tick', { vol: .9 });
-    if (n === 2) A.sfx('charge', { vol: .8 });
+    A.sfx('tick', { vol: .45 });
+    bossSay(`count_${n}`, NUM_WORDS[n], { show: false, cps: 8 }); // the beholder counts aloud: eyes stay on the screen
+    if (n === 2) A.sfx('charge', { vol: .7 });
     await wait(1000); ok();
   }
+  $('countdown').classList.remove('tick');
+  boss.setEmotion('angry', 3); bossSay('time_up', 'Time is up!', { show: false, cps: 10 });
 }
 // death by colour of the ray: each eye kills its own way
 const DEATHS = ['blood', 'gib', 'burn', 'stone'];
@@ -355,8 +361,61 @@ function renderFinal(m) {
     const ring = TINTS[r.tint] || 'transparent';
     return `<tr><td>${r.rank}</td><td><img src="/assets/portraits/${r.char}.png" alt="" style="border-color:${ring}"> <b>${esc(r.name)}</b></td><td class="pts">${r.points}</td><td>${Math.max(0, r.round - 1)} <small>rounds</small></td><td>${r.correct}/${r.answered}</td><td class="strong">${esc(best)}</td><td class="weak">${esc(worst)}</td></tr>`;
   }).join('');
+  const d = m.date ? new Date(m.date) : new Date();
+  lastOver = { code: $('code').textContent.trim(), d };
+  $('fmeta').textContent = `Lair ${lastOver.code} · started at ${m.level} · ${m.rounds} round${m.rounds === 1 ? '' : 's'} · ${d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })} ${d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}`;
+  // round by round: the question, its right answer, how many got it and who fell
+  $('review').innerHTML = (m.log || []).map(r => {
+    const n = r.ok.length + r.ko.length, q = r.prompt.length > 130 ? r.prompt.slice(0, 127) + '…' : r.prompt;
+    return `<div class="rv"><span class="n">R${r.round}</span><div class="q">${esc(q)} <small>· ${esc(r.level)} · ${esc(r.part || '')}</small><em>✓ ${esc(r.answer)}</em></div>`
+      + `<span class="res ${r.ok.length === n ? 'good' : r.ok.length ? '' : 'bad'}">${r.ok.length}/${n} right</span>`
+      + (r.ko.length ? `<div class="who">Fell: <b>${r.ko.map(esc).join(', ')}</b></div>` : '') + `</div>`;
+  }).join('') || '<div class="lbl">No rounds were played.</div>';
+  requestAnimationFrame(fitReview);
   $('rank').innerHTML = `<tr><th>#</th><th>Hero</th><th>Points</th><th>Survived</th><th>Right</th><th>Strong at</th><th>Practise</th></tr>${rows}`;
   renderTop([], $('top2')); fetch('/api/top').then(r => r.json()).then(t => renderTop(t, $('top2'))).catch(() => { });
+}
+
+// long games: shrink the round-by-round text until it fits its panel (it still scrolls past the minimum)
+function fitReview() {
+  const r = $('review'); let k = 1; r.style.setProperty('--rs', k);
+  while (r.scrollHeight > r.clientHeight + 2 && k > .6) { k -= .05; r.style.setProperty('--rs', k.toFixed(2)); }
+}
+// ---------- "Save this session": a PNG of the final board over the lair ----------
+let shotWait = null, lastOver = null;
+function loadScript(src) { return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); }); }
+async function saveSession() {
+  const btn = $('saveShot'); if (btn.disabled) return;
+  const label = btn.textContent; btn.disabled = true; btn.textContent = 'Saving…';
+  try {
+    if (!window.htmlToImage) await loadScript('/vendor/html-to-image/html-to-image.js');
+    const W = innerWidth, H = innerHeight, pr = Math.min(2, Math.max(1, 1920 / W));
+    const bg = await new Promise(r => { shotWait = r; });
+    const board = $('final');
+    board.classList.add('capture'); fitReview(); // the picture gets every round: the review takes the whole column
+    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+    const box = board.getBoundingClientRect();
+    const png = await window.htmlToImage.toPng(board, {
+      pixelRatio: pr, width: box.width, height: box.height,
+      style: { position: 'static', inset: 'auto', margin: '0', opacity: '1', transition: 'none' },
+      filter: n => !(n.classList && n.classList.contains('finalbtns')),
+    });
+    const load = src => new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; });
+    const [a, b] = await Promise.all([load(bg), load(png)]);
+    const c = document.createElement('canvas'); c.width = Math.round(W * pr); c.height = Math.round(H * pr);
+    const g = c.getContext('2d');
+    g.drawImage(a, 0, 0, c.width, c.height);
+    g.fillStyle = 'rgba(5,3,4,.35)'; g.fillRect(0, 0, c.width, c.height);
+    g.drawImage(b, box.left * pr, box.top * pr, box.width * pr, box.height * pr);
+    const d = (lastOver && lastOver.d) || new Date(), pad = x => String(x).padStart(2, '0');
+    const name = `eye-of-the-beholder_${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}_${pad(d.getHours())}${pad(d.getMinutes())}${lastOver && lastOver.code ? '_' + lastOver.code : ''}.png`;
+    const blob = await new Promise(r => c.toBlob(r, 'image/png'));
+    const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = name; document.body.appendChild(link); link.click();
+    setTimeout(() => { URL.revokeObjectURL(link.href); link.remove(); }, 4000);
+    btn.textContent = 'Saved ✓';
+  } catch (e) { console.error('save session', e); btn.textContent = 'Could not save'; }
+  $('final').classList.remove('capture'); fitReview();
+  setTimeout(() => { btn.textContent = label; btn.disabled = false; }, 2500);
 }
 
 // ---------- main loop ----------
@@ -384,8 +443,9 @@ function frame() {
       else if (ms < 20 && pr < Math.min(devicePixelRatio, 1.25)) S.renderer.setPixelRatio(pr = Math.min(Math.min(devicePixelRatio, 1.25), pr + .1));
       perf.t = 0; perf.n = 0; } }
   S.renderer.render(S.scene, S.camera);
+  if (shotWait) { const r = shotWait; shotWait = null; r(S.renderer.domElement.toDataURL('image/jpeg', .9)); } // grabbed right after drawing, so the frame is not blank
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
 // for automated tests
-window.__eotb = { heroes, get boss() { return boss; }, S, onMsg, send, dbg: () => ({ flowId, simNow, waits: simWaits.length, state }) };
+window.__eotb = { heroes, get boss() { return boss; }, S, onMsg, send, renderFinal, saveSession, renderFinal, saveSession, dbg: () => ({ flowId, simNow, waits: simWaits.length, state }) };

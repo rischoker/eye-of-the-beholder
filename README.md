@@ -1,14 +1,16 @@
 # 👁️ Eye of the Beholder
 
 Juego multijugador de fantasía oscura para la clase de inglés (A1–C1).
-El proyector muestra una cripta en ruinas iluminada por dos antorchas. Desde la oscuridad emerge un beholder gigante que hace preguntas de inglés. Los estudiantes, con el celular como control, se paran sobre el círculo mágico de la respuesta correcta antes de que termine la cuenta de 6 segundos. A los demás los mata con los rayos de sus ojos.
+El proyector muestra una cripta en ruinas iluminada por dos antorchas. Desde la oscuridad emerge un beholder gigante que hace preguntas de inglés. Los estudiantes, con el celular como control, se paran sobre el círculo mágico de la respuesta correcta antes de que termine la cuenta regresiva, que el beholder dice en voz alta: 6 segundos en A1 y A2, 10 segundos de B1 en adelante. Después de leer la pregunta hay una pausa de lectura (más larga si el texto es largo) antes de empezar a contar. A los demás los mata con los rayos de sus ojos.
 
 - 👥 De 1 a **10 jugadores**. Si dos eligen el mismo héroe, el segundo sale con otro color y su nombre lleva una marca del mismo color.
 - 💀 Los muertos vuelven como **fantasmas**: se siguen moviendo con el celular, pero no suman puntos ni afectan la partida.
 - 📈 **Dificultad:** el nivel elegido es el punto de partida. Cada vez que muere gente las preguntas suben de nivel, hasta C1. También suben cada 6 rondas, para que una partida con pocos jugadores no se estanque. A partir de B1 se mezclan preguntas del nivel anterior para que la subida sea más suave.
 - ⭕ A1 y A2 usan 3 círculos; de B1 en adelante, 4.
 - 🏆 **Puntos:** cada respuesta correcta vale según su nivel (A1 = 10, A2 = 20, B1 = 30, B2 = 40, C1 = 50). La partida termina cuando no queda nadie con vida. Si queda uno solo, sigue hasta que muera.
-- 📋 Al final, el tablero muestra por estudiante: puntos, rondas que sobrevivió, aciertos, en qué parte del examen fue fuerte y qué debe practicar. Cada celular muestra su propio informe.
+- 📋 Al final, el tablero muestra por estudiante: puntos, rondas que sobrevivió, aciertos, en qué parte del examen fue fuerte y qué debe practicar. Al lado aparece la partida ronda por ronda: la pregunta, la respuesta correcta, cuántos acertaron y quién cayó. Cada celular muestra su propio informe.
+- 📸 **Save this session** descarga una imagen PNG del tablero final (con todas las rondas), con la fecha y el código de la sala en el nombre del archivo.
+- 🖥️ La interfaz se escala igual en cualquier resolución o relación de aspecto (16:9, 16:10, 4:3).
 
 ## Cómo se juega en clase
 1. Abre la página en el PC del proyector y haz clic en **Open the lair**. Ese clic activa la música.
@@ -34,7 +36,7 @@ Todo suena desde el principio: si falta un archivo, el juego lo sintetiza. Mient
 Para usar audios reales, pon los `.mp3` con estos nombres:
 
 **`public/assets/voice/`** (voz Malakor, ElevenLabs)
-`intro`, `answer_or_die`, `laugh_1`, `laugh_2`, `kill_1`, `kill_2`, `kill_3`, `angry_1`, `angry_2`, `angry_3`, `next_1`, `next_2`, `harder`, `last_one`, `you_died`
+`intro`, `count_10` … `count_1`, `time_up`, `laugh_1`, `laugh_2`, `kill_1`, `kill_2`, `kill_3`, `angry_1`, `angry_2`, `angry_3`, `next_1`, `next_2`, `harder`, `last_one`, `you_died`
 
 **`public/assets/sfx/`** (puede haber variantes: `scream_m_1`, `scream_m_2`…)
 `scream_m`, `scream_f`, `beam`, `charge`, `splat`, `rumble`, `torch`, `tick`, `gong`, `ghost`, `circles`, `burn`, `petrify`, `roar`, `stamp`
@@ -46,7 +48,7 @@ El banco viene de Castle Quest (`questions/A1.json … C1.json`). Puedes editarl
 El juego descarta las preguntas con textos largos de lectura y las opciones de más de 44 caracteres.
 
 ## Ajustes rápidos
-Al inicio de `server.js`, el objeto `T` reúne lo que vale la pena ajustar después de probar en clase: velocidad de los héroes, tamaño de los círculos, cada cuántas rondas sube el nivel, la mezcla de niveles, círculos por nivel y puntos.
+Al inicio de `server.js`, el objeto `T` reúne lo que vale la pena ajustar después de probar en clase: velocidad de los héroes, segundos de cuenta por nivel (`COUNTDOWN`), pausa de lectura (`READ_PAUSE_MS`), tamaño de los círculos, cada cuántas rondas sube el nivel, la mezcla de niveles, círculos por nivel y puntos.
 
 ## Créditos
 - Beholder "Maw of a Thousand Eyes" (modelo de Leonardo), con rig y animación procedural propios.

@@ -17,7 +17,16 @@ scene.fog = new THREE.Fog(0x030203, 14, 34);
 export const camera = new THREE.PerspectiveCamera(42, innerWidth / innerHeight, 0.1, 120);
 export const cam = { pos: new THREE.Vector3(0, 8.5, 15.5), look: new THREE.Vector3(0, 2.2, -1), shake: 0, fovBase: 42 };
 camera.position.copy(cam.pos);
-addEventListener('resize', () => { renderer.setSize(innerWidth, innerHeight); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); });
+// screens narrower than 16:9 (4:3 projectors, 16:10 laptops) widen the vertical FOV so the
+// arena keeps the same horizontal framing: no circle or hero is cut off at the sides
+function fitView() {
+  const aspect = innerWidth / innerHeight, ref = 16 / 9;
+  camera.aspect = aspect;
+  camera.fov = aspect >= ref ? cam.fovBase : THREE.MathUtils.radToDeg(2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(cam.fovBase / 2)) * ref / aspect));
+  camera.updateProjectionMatrix();
+}
+fitView();
+addEventListener('resize', () => { renderer.setSize(innerWidth, innerHeight); fitView(); });
 
 // light rig: almost nothing until the torches ignite
 export const ambient = new THREE.HemisphereLight(0x6a5a78, 0x120808, 0.0);

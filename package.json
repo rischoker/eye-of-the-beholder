@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "express": "^5.2.1",
+    "html-to-image": "^1.11.11",
     "qrcode": "^1.5.4",
     "three": "0.170.0",
     "ws": "^8.22.0"
@@ -19,5 +20,7 @@
     "meshoptimizer": "^0.22.0",
     "playwright-core": "^1.56.0"
   },
-  "engines": { "node": ">=18" }
+  "engines": {
+    "node": ">=18"
+  }
 }
